@@ -1,0 +1,15 @@
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\bin\Debug\net6.0\Solo 3.exe
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\bin\Debug\net6.0\Solo 3.deps.json
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\bin\Debug\net6.0\Solo 3.runtimeconfig.json
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\bin\Debug\net6.0\Solo 3.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\bin\Debug\net6.0\Solo 3.pdb
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.AssemblyInfo.cs
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\refint\Solo 3.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.pdb
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\Solo 3.genruntimeconfig.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\Solo 3\obj\Debug\net6.0\ref\Solo 3.dll

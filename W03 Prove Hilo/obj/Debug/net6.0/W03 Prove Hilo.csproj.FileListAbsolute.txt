@@ -1,0 +1,15 @@
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\bin\Debug\net6.0\W03 Prove Hilo.exe
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\bin\Debug\net6.0\W03 Prove Hilo.deps.json
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\bin\Debug\net6.0\W03 Prove Hilo.runtimeconfig.json
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\bin\Debug\net6.0\W03 Prove Hilo.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\bin\Debug\net6.0\W03 Prove Hilo.pdb
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.AssemblyInfo.cs
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\refint\W03 Prove Hilo.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.pdb
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\W03 Prove Hilo.genruntimeconfig.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\W03 Prove Hilo\obj\Debug\net6.0\ref\W03 Prove Hilo.dll

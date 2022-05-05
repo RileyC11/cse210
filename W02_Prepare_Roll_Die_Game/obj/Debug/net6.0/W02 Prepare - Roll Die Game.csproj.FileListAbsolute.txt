@@ -3,3 +3,13 @@ C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\De
 C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.AssemblyInfoInputs.cache
 C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.AssemblyInfo.cs
 C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\bin\Debug\net6.0\W02 Prepare - Roll Die Game.exe
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\bin\Debug\net6.0\W02 Prepare - Roll Die Game.deps.json
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\bin\Debug\net6.0\W02 Prepare - Roll Die Game.runtimeconfig.json
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\bin\Debug\net6.0\W02 Prepare - Roll Die Game.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\bin\Debug\net6.0\W02 Prepare - Roll Die Game.pdb
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\refint\W02 Prepare - Roll Die Game.dll
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.pdb
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.genruntimeconfig.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\ref\W02 Prepare - Roll Die Game.dll

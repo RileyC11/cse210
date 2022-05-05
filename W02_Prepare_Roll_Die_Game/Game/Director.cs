@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace W02_Prepare_Roll_Die_Game
+namespace W02_Prepare_Roll_Die_Game.Game
 {
     /// <summary>
     /// A person who directs the game. 

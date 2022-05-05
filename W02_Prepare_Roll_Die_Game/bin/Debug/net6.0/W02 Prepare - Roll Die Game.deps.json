@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "W02 Prepare - Roll Die Game/1.0.0": {
+        "runtime": {
+          "W02 Prepare - Roll Die Game.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "W02 Prepare - Roll Die Game/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace W02_Prepare_Roll_Die_Game
+namespace W02_Prepare_Roll_Die_Game.Game
 {
     public class Die
     {

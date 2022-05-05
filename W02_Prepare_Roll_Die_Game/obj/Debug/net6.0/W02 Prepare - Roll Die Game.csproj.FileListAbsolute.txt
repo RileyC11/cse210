@@ -1,0 +1,5 @@
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.AssemblyInfo.cs
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W02_Prepare_Roll_Die_Game\obj\Debug\net6.0\W02 Prepare - Roll Die Game.csproj.CoreCompileInputs.cache

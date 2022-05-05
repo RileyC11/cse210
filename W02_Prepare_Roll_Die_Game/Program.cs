@@ -1,4 +1,4 @@
-﻿using W02_Prepare_Roll_Die_Game;
+﻿using W02_Prepare_Roll_Die_Game.Game;
 
 
 namespace W02_Prepare_Roll_Die_Game

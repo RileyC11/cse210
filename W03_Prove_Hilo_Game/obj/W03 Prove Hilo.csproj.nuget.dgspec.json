@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\W03 Prove Hilo\\W03 Prove Hilo.csproj": {}
+    "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03 Prove Hilo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\W03 Prove Hilo\\W03 Prove Hilo.csproj": {
+    "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03 Prove Hilo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\W03 Prove Hilo\\W03 Prove Hilo.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03 Prove Hilo.csproj",
         "projectName": "W03 Prove Hilo",
-        "projectPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\W03 Prove Hilo\\W03 Prove Hilo.csproj",
+        "projectPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03 Prove Hilo.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\W03 Prove Hilo\\obj\\",
+        "outputPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"

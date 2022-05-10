@@ -12,6 +12,8 @@ namespace W03_Prove_Hilo_Game.Game
         int playCount = 0;
         string guess = "";
         string playAgain = "";
+        int cardOne = 0;
+        int cardTwo = 0;
 
         public Director()
         {
@@ -26,10 +28,6 @@ namespace W03_Prove_Hilo_Game.Game
         {
             while (isPlaying)
             {
-                // foreach (Card card in cards)
-                // {
-                //     Console.WriteLine(card.value);
-                // }
                 MakeCards();
                 DisplayCard();
                 GetGuess();
@@ -38,7 +36,6 @@ namespace W03_Prove_Hilo_Game.Game
                 DisplayScore();
                 PlayAgain();
                 Console.WriteLine();
-                
             }
         }
         
@@ -48,6 +45,8 @@ namespace W03_Prove_Hilo_Game.Game
                 {
                     card.Draw();
                 }
+            cardOne = cards[0].value;
+            cardTwo = cards[1].value;
         }
         public void DisplayCard()
         {
@@ -56,10 +55,6 @@ namespace W03_Prove_Hilo_Game.Game
                 return;
             }
 
-            int cardOne = cards[0].value;
-            int cardTwo = cards[1].value;
-            // Console.WriteLine(cardOne);
-            // Console.WriteLine(cardTwo);
             if (guess == "")
             {
                 Console.WriteLine($"The card is: {cardOne}");
@@ -89,36 +84,22 @@ namespace W03_Prove_Hilo_Game.Game
                 return;
             }
             
-            int cardOne = cards[0].value;
-            int cardTwo = cards[1].value;
             score = 0;
-
-            if (cardOne == cardTwo)
+            if (cardOne == cardTwo) //both cards are the same
             {
                 score = 0;
                 totalScore += score;
             }
-            else if (cardOne > cardTwo && guess == "h") //next card was lower and user guessed higher
+            else if ((cardOne > cardTwo && guess == "h") || (cardOne < cardTwo && guess == "l")) //next card was lower and user guessed higher OR was higher and guessed lower
             {
                 score = -75;
                 totalScore += score;
             }
-            else if (cardOne < cardTwo && guess == "h") //next card was higher and user guess higher
+            else if ((cardOne < cardTwo && guess == "h") || (cardOne > cardTwo && guess == "l")) //next card was higher and user guess higher OR was lower and guessed lower
             {
                 score = 100;
                 totalScore += score;
             }
-            else if (cardOne > cardTwo && guess == "l") //next card was lower and user guessed lower
-            {
-                score = 100;
-                totalScore += score;
-            }
-            else if (cardOne < cardTwo && guess == "l") //next card was higher and user guessed lower 
-            {
-                score = -75;
-                totalScore += score;
-            }
-
             playCount +=1;
             isPlaying = (totalScore > 0);
         }

@@ -128,3 +128,5 @@ namespace W03_Prove_Hilo_Game.Game
         }
     }
 }
+
+// want to display amount of times played if their score becomes zero

@@ -1,23 +1,24 @@
 using System;
-using System.Collections.Generic;
 
-namespace W05_Prove_Jumper_Game.Game
-{
+// namespace W05_Prove_Jumper_Game.Game
+// {
     public class Director
     {
-        private WordGenerator word = new WordGenerator();
-        private bool isAlive = true;
-        private Guesser guess = new Guesser();
         private TerminalServices terminalServices = new TerminalServices();
+        private Guesser guesser = new Guesser();
+        private Jumper jumper = new Jumper();
+        private bool isAlive = true;
+        
         public Director()
         {
         }
 
         public void StartGame()
         {
-            GetInputs();
-            DoUpdates();
-            DoOutputs();
+            // GetInputs();
+            // DoUpdates();
+            // DoOutputs();
+            jumper.CreatePerson();
         }
 
         private void GetInputs()
@@ -35,4 +36,4 @@ namespace W05_Prove_Jumper_Game.Game
 
         }
     }
-}
+// }

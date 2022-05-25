@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace W05_Prove_Jumper_Game
-{
-    class Program
+// namespace W05_Prove_Jumper_Game
+// {
+    public class Program
     {
-        static int Main(string[] args)
+        public static int Main(string[] args)
         {
             Director director = new Director();
             director.StartGame();
             return 0;
         }
     }
-}
+// }

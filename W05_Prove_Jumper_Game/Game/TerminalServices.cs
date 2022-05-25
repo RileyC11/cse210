@@ -1,7 +1,7 @@
 using System;
 
-namespace W05_Prove_Jumper_Game.Game
-{
+// namespace W05_Prove_Jumper_Game.Game
+// {
     public class TerminalServices
     {
         public TerminalServices()
@@ -20,4 +20,4 @@ namespace W05_Prove_Jumper_Game.Game
         }
 
     }
-}
+// }

@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
 
-namespace W05_Prove_Jumper_Game.Game
-{
+// namespace W05_Prove_Jumper_Game.Game
+// {
     public class Guesser
     {
         private string guess = "";
 
         public Guesser()
         {
-            
+
         }
     }
-}
+// }

@@ -38,6 +38,7 @@ namespace W05_Seeker_Game.Game
 
         /// <summary>
         /// Moves the seeker to a new location.
+        /// First line prints the hiders location
         /// </summary>
         private void GetInputs()
         {

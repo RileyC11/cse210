@@ -1,7 +1,7 @@
 ﻿using W05_Seeker_Game.Game;
 
 
-namespace Unit03
+namespace W05_Seeker_Game
 {
     /// <summary>
     /// The program's entry point.

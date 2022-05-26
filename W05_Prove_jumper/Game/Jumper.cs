@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace W05_Prove_Jumper_Game.Game
+namespace W05_Prove_jumper.Game
 {
     public class Jumper
     {
@@ -56,17 +56,18 @@ namespace W05_Prove_Jumper_Game.Game
                 if (guess == secretWord[i])
                 {
                     secretLetters[i] = guess;
+                    correctGuess = true;
+                    break;
                 }
-            }
-
-            if (secretLetters.Contains(guess))
-            {
-                correctGuess = true;
+                else
+                {
+                    correctGuess = false;
+                }
             }
 
             foreach (char c in secretLetters)
             {
-                Console.Write(c);
+                Console.Write($"{c} ");
             }
             Console.WriteLine();
 
@@ -79,17 +80,16 @@ namespace W05_Prove_Jumper_Game.Game
             {
                 for (int i = 0; i < person.Length; i++)
                 {
-                    if (person[i] != "" && person[i+1] == "   O   ")
+                    if (person[i] == "   O   ")
                     {
-                        person[i] = "";
-                        person[i+1] = "   X   ";
-                        incorrectGuesses += 1;
+                        person[i] = "   X   ";
+                        incorrectGuesses +=1;
                         break;
                     }
                     else if (person[i] != "")
                     {
                         person[i] = "";
-                        incorrectGuesses += 1;
+                        incorrectGuesses +=1;
                         break;                 
                     }
                 }
@@ -98,60 +98,27 @@ namespace W05_Prove_Jumper_Game.Game
 
         public bool CheckAlive()
         {
-            // for (int i = 0; i < secretWord.Length; i++)
-            // {
-            //     if (secretLetters[i] != '_')
-            //     {
-            //         correctGuesses += 1;
-            //     }
-            // }
-
-            // if (correctGuesses == 5)
-            // {
-            //     Console.WriteLine("You won!");
-            //     hasWon = true;
-            // }
-
-            // if (incorrectGuesses == 4)
-            // {
-            //     isAlive = false;
-            // }
-
-            if (person.Contains("   X   "))
+            for (int i = 0; i < secretWord.Length; i++)
             {
+                if (secretLetters[i] != '_')
+                {
+                    correctGuesses += 1;
+                }
+            }
+
+            if (correctGuesses == 5)
+            {
+                Console.WriteLine("You won!");
+                hasWon = true;
+            }
+
+            else if (incorrectGuesses == 5)
+            {
+                Console.WriteLine("You're dead now.");
                 isAlive = false;
             }
 
             return isAlive;
-        }
-
-        public bool CheckWin()
-        {
-            // for (int i = 0; i < secretWord.Length; i++)
-            // {
-            //     if (secretLetters[i] != '_')
-            //     {
-            //         correctGuesses += 1;
-            //     }
-            //     Console.WriteLine($"Correct # guesses: {correctGuesses}");
-            // }
-
-            // if (correctGuesses == 5)
-            // {
-            //     Console.WriteLine($"Correct # guesses: {correctGuesses}");
-            //     Console.WriteLine("You won!");
-            //     hasWon = true;
-            // }
-
-            // correctGuesses = 0;
-            // return hasWon;
-
-            if (secretLetters.Contains('_') == false)
-            {
-                hasWon = true;
-            }
-
-            return hasWon;
         }
     }
 }

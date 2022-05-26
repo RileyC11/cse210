@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace W05_Prove_Jumper_Game.Game
+namespace W05_Prove_jumper.Game
 {
     public class Guesser
     {

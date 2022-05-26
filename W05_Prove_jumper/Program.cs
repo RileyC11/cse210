@@ -1,8 +1,8 @@
-﻿using W05_Prove_Jumper_Game.Game;
+﻿using W05_Prove_jumper.Game;
 
-namespace W05_Prove_Jumper_Game
+namespace W05_Prove_jumper
 {
-    public class Program
+    class Program
     {
         static int Main(string[] args)
         {

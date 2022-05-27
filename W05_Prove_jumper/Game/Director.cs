@@ -8,23 +8,21 @@ namespace W05_Prove_jumper.Game
         private Guesser guesser = new Guesser();
         private Jumper jumper = new Jumper();
         private Checker checker = new Checker();
-        private bool correctGuess = false;
         private bool isAlive = true;
         private bool hasWon = false;
-        private string secretWord = "";
-        private char guess;
         private bool alreadyGuessed = false;
+        private bool correctGuess = false;
         private bool breakLoop = false;
         private bool continueUpdates = true;
+        private string secretWord = "";
+        private char guess;
         
         public Director()
         {
         }
 
         public void StartGame()
-        {
-            this.secretWord = checker.secretWord;
-            Console.WriteLine(checker.secretWord);
+        {            
             checker.WriteLetters();
 
             while (isAlive == true && hasWon == false)
@@ -41,8 +39,8 @@ namespace W05_Prove_jumper.Game
                     DoOutputs(); 
                 }
 
-                breakLoop = false;
                 alreadyGuessed = false;
+                breakLoop = false;
             }
             
         }
@@ -52,28 +50,10 @@ namespace W05_Prove_jumper.Game
             this.guess = terminalServices.ReadChar("Guess a letter: ");
         }
 
-        private bool DoChecks()
-        {
-            guesser.UpdateGuess(guess);
-            this.alreadyGuessed = checker.CheckLists(guess);
-            this.correctGuess = checker.CheckGuess(guess);
-            
-            breakLoop = (alreadyGuessed == true);
-
-            if (breakLoop == true)
-            {
-                terminalServices.WriteText($"\nYou already guessed the letter '{guess}'");
-                checker.WriteLetters();
-            }
-            else
-            {
-                checker.WriteLetters();
-            }
-
-            return breakLoop;
-        }
         private bool DoUpdates()
         {
+            this.secretWord = checker.secretWord;
+            // Console.WriteLine(secretWord);
             guesser.UpdateGuess(guess);
             this.alreadyGuessed = checker.CheckLists(guess);
             this.correctGuess = checker.CheckGuess(guess);

@@ -1,68 +1,116 @@
 using System;
-using System.Collections.Generic;
 
 namespace W05_Prove_jumper.Game
 {
     public class Director
     {
-        public TerminalServices terminalServices = new TerminalServices();
-        public Guesser guesser = new Guesser();
-        public Jumper jumper = new Jumper();
-        public bool isAlive = true;
-        public bool correctGuess = true;
-        public bool hasWon = true;
-        public string secretWord = "";
-        public char guess;
+        private TerminalServices terminalServices = new TerminalServices();
+        private Guesser guesser = new Guesser();
+        private Jumper jumper = new Jumper();
+        private Checker checker = new Checker();
+        private bool correctGuess = false;
+        private bool isAlive = true;
+        private bool hasWon = false;
+        private string secretWord = "";
+        private char guess;
+        private bool alreadyGuessed = false;
+        private bool breakLoop = false;
+        private bool continueUpdates = true;
+        
+        public Director()
+        {
+        }
 
         public void StartGame()
         {
-            Console.WriteLine(jumper.secretWord);
+            this.secretWord = checker.secretWord;
+            Console.WriteLine(checker.secretWord);
+            checker.WriteLetters();
 
-            while (isAlive == true)
+            while (isAlive == true && hasWon == false)
             {
-            // GetInputs();
-            // DoUpdates();
-            // DoOutputs();
+                while (breakLoop == false && isAlive == true && hasWon == false)
+                {
+                    jumper.CreatePerson();
+                    GetInputs();
+                    breakLoop = DoUpdates();
+                    if (breakLoop == true)
+                    {
+                        break;
+                    }
+                    DoOutputs(); 
+                }
 
-
-            jumper.CreatePerson();
-
-            guess = terminalServices.ReadChar("Guess a letter: ");
-            guesser.UpdateGuess(guess);
-            Console.WriteLine(guesser.guess);
-
-            this.correctGuess = jumper.CheckGuess(guess);
-            // this.correctGuess = jumper.CheckGuess(guesser.GetGuess());
-            Console.WriteLine(correctGuess);
-
-            jumper.UpdatePerson(correctGuess);
-            this.isAlive = jumper.CheckAlive();
-            Console.WriteLine(isAlive);
-
-            if (isAlive == false)
-            {
-                jumper.CreatePerson();
-            }
+                breakLoop = false;
+                alreadyGuessed = false;
             }
             
         }
 
-        public void GetInputs()
+        private void GetInputs()
         {
-            guess = terminalServices.ReadChar("Guess a letter: ");
+            this.guess = terminalServices.ReadChar("Guess a letter: ");
         }
 
-        public void DoUpdates()
+        private bool DoChecks()
         {
             guesser.UpdateGuess(guess);
-            this.correctGuess = jumper.CheckGuess(guess);
-            jumper.UpdatePerson(correctGuess);       
-            this.isAlive = jumper.CheckAlive(); 
+            this.alreadyGuessed = checker.CheckLists(guess);
+            this.correctGuess = checker.CheckGuess(guess);
+            
+            breakLoop = (alreadyGuessed == true);
+
+            if (breakLoop == true)
+            {
+                terminalServices.WriteText($"\nYou already guessed the letter '{guess}'");
+                checker.WriteLetters();
+            }
+            else
+            {
+                checker.WriteLetters();
+            }
+
+            return breakLoop;
+        }
+        private bool DoUpdates()
+        {
+            guesser.UpdateGuess(guess);
+            this.alreadyGuessed = checker.CheckLists(guess);
+            this.correctGuess = checker.CheckGuess(guess);
+            
+            breakLoop = (alreadyGuessed == true);
+
+            continueUpdates = !breakLoop;
+            if (continueUpdates == true)
+            {
+                jumper.UpdatePerson(correctGuess);
+                this.isAlive = jumper.CheckAlive();
+                this.hasWon = checker.CheckWin();
+                checker.WriteLetters();
+            }
+            else
+            {
+                terminalServices.WriteText($"You already guessed the letter '{guess}'.\n");
+                checker.WriteLetters();
+            }
+
+            return breakLoop;  
         }
 
-        public void DoOutputs()
+        private void DoOutputs()
         {
+            if (isAlive == false)
+            {
+                jumper.CreatePerson();
+                terminalServices.WriteText("You're dead now. Ka-splat!");
+                terminalServices.WriteText($"The secret word was '{secretWord}' just so you know.\n");
+            }
 
+            else if (isAlive == true && hasWon == true)
+            {
+                terminalServices.WriteText($"\nYou're alive! Congrats on guessing the word '{secretWord}'.\n");
+
+            }
         }
     }
 }

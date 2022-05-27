@@ -14,8 +14,6 @@ namespace W05_Prove_jumper.Game
 
         public char GetGuess()
         {
-            // Console.Write("Guess a letter: ");
-            // guess = char.Parse(Console.ReadLine());
             return guess;
         }
 

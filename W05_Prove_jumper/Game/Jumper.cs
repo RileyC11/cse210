@@ -22,14 +22,6 @@ namespace W05_Prove_jumper.Game
 
         public Jumper()
         {
-            if (File.Exists(filePath))
-            {
-                words = File.ReadAllLines(filePath);
-            }
-            
-            Random random = new Random();
-            int randIndex = random.Next(100);
-            secretWord = words[randIndex];
         }
 
         public void CreatePerson()
@@ -49,47 +41,23 @@ namespace W05_Prove_jumper.Game
             Console.WriteLine();
         }
 
-        public bool CheckGuess(char guess)
-        {
-            for (int i = 0; i < secretWord.Length; i++)
-            {
-                if (guess == secretWord[i])
-                {
-                    secretLetters[i] = guess;
-                    correctGuess = true;
-                    break;
-                }
-                else
-                {
-                    correctGuess = false;
-                }
-            }
-
-            foreach (char c in secretLetters)
-            {
-                Console.Write($"{c} ");
-            }
-            Console.WriteLine();
-
-            return correctGuess;
-        }
-
         public void UpdatePerson(bool correctGuess)
         {
             if (correctGuess == false)
             {
                 for (int i = 0; i < person.Length; i++)
                 {
-                    if (person[i] == "   O   ")
+                    if (person[i] != "" && person[i+1] == "   O   ")
                     {
-                        person[i] = "   X   ";
-                        incorrectGuesses +=1;
+                        person[i] = "";
+                        person[i+1] = "   X   ";
+                        incorrectGuesses += 1;
                         break;
                     }
                     else if (person[i] != "")
                     {
                         person[i] = "";
-                        incorrectGuesses +=1;
+                        incorrectGuesses += 1;
                         break;                 
                     }
                 }
@@ -98,23 +66,8 @@ namespace W05_Prove_jumper.Game
 
         public bool CheckAlive()
         {
-            for (int i = 0; i < secretWord.Length; i++)
+            if (person.Contains("   X   "))
             {
-                if (secretLetters[i] != '_')
-                {
-                    correctGuesses += 1;
-                }
-            }
-
-            if (correctGuesses == 5)
-            {
-                Console.WriteLine("You won!");
-                hasWon = true;
-            }
-
-            else if (incorrectGuesses == 5)
-            {
-                Console.WriteLine("You're dead now.");
                 isAlive = false;
             }
 

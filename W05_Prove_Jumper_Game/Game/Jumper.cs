@@ -22,14 +22,14 @@ namespace W05_Prove_Jumper_Game.Game
 
         public Jumper()
         {
-            if (File.Exists(filePath))
-            {
-                words = File.ReadAllLines(filePath);
-            }
+            // if (File.Exists(filePath))
+            // {
+            //     words = File.ReadAllLines(filePath);
+            // }
             
-            Random random = new Random();
-            int randIndex = random.Next(100);
-            secretWord = words[randIndex];
+            // Random random = new Random();
+            // int randIndex = random.Next(100);
+            // secretWord = words[randIndex];
         }
 
         public void CreatePerson()
@@ -47,6 +47,14 @@ namespace W05_Prove_Jumper_Game.Game
                 }
             }
             Console.WriteLine();
+        }
+
+        public void WriteLetters()
+        {
+            foreach (char c in secretLetters)
+            {
+                Console.Write(c);
+            }
         }
 
         public bool CheckGuess(char guess)

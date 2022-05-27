@@ -16,7 +16,7 @@ namespace W05_Prove_Jumper_Game.Game
 
         public void WriteText(string text)
         {
-            Console.WriteLine(text);
+            Console.WriteLine($"{text}\n");
         }
 
     }

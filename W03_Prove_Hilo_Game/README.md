@@ -18,4 +18,8 @@ The next method is DisplayScore which shows the players current score. I feel th
 
 The next method is PlayAgain which asks if the user wants to play again. If the user decides not to play again, then it displays how many times they played. If the user decides to play again, then it updates their choice and resets "guess" to "" so that DisplayCard works properly.
 
+<<<<<<< HEAD
 The Program class creates a new Director object then calls the StartGame method. 
+=======
+The Program class creates a new Director object then calls the StartGame method. 
+>>>>>>> 7cf44b98ba483a87454e3c0b1efd85b006625855

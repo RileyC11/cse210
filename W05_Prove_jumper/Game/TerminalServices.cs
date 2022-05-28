@@ -11,13 +11,13 @@ namespace W05_Prove_jumper.Game
 
         public char ReadChar(string prompt)
         {
-            Console.Write(prompt);
+            WriteText(prompt);
             return char.Parse(Console.ReadLine());
         }
 
         public void WriteText(string text)
         {
-            Console.WriteLine(text);
+            Console.Write(text);
         }
 
     }

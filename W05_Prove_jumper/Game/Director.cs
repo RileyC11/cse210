@@ -64,7 +64,9 @@ namespace W05_Prove_jumper.Game
             if (continueUpdates == true)
             {
                 jumper.UpdatePerson(correctGuess);
-                this.isAlive = jumper.CheckAlive();
+                // this.isAlive = jumper.CheckAlive();
+                this.isAlive = checker.CheckAlive(jumper);
+                // Console.WriteLine($"Director alive: {isAlive}");
                 this.hasWon = checker.CheckWin();
                 checker.WriteLetters();
             }

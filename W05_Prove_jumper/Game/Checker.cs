@@ -6,6 +6,7 @@ namespace W05_Prove_jumper.Game
     public class Checker
     {
         public TerminalServices terminalServices = new TerminalServices();
+        public Jumper jumper = new Jumper();
         public string filePath = @"C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W05_Prove_Jumper_Game\Game\Words.txt";
         public List<char> correctGuessList = new List<char>();
         public List<char> incorrectGuessList = new List<char>();
@@ -16,6 +17,7 @@ namespace W05_Prove_jumper.Game
 
         public bool alreadyGuessed = false;
         public bool correctGuess = false;
+        public bool isAlive = true;
         public bool hasWon = false;
 
         public Checker()
@@ -69,13 +71,13 @@ namespace W05_Prove_jumper.Game
             return correctGuess;            
         }
 
-        public void WriteLetters()
+        public bool CheckAlive(Jumper jumper)
         {
-            foreach (char c in secretLetters)
+            if (jumper.person.Contains("   X   "))
             {
-                Console.Write(c);
+                isAlive = false;
             }
-            Console.WriteLine();
+            return isAlive;
         }
 
         public bool CheckWin()
@@ -86,6 +88,15 @@ namespace W05_Prove_jumper.Game
             }
 
             return hasWon;
+        }
+
+        public void WriteLetters()
+        {
+            foreach (char c in secretLetters)
+            {
+                Console.Write(c);
+            }
+            Console.WriteLine();
         }
     }
 }

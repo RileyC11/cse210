@@ -1,0 +1,5 @@
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W08_Prove_greed_game\obj\Debug\net6.0\W08_Prove_greed_game.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W08_Prove_greed_game\obj\Debug\net6.0\W08_Prove_greed_game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W08_Prove_greed_game\obj\Debug\net6.0\W08_Prove_greed_game.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W08_Prove_greed_game\obj\Debug\net6.0\W08_Prove_greed_game.AssemblyInfo.cs
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W08_Prove_greed_game\obj\Debug\net6.0\W08_Prove_greed_game.csproj.CoreCompileInputs.cache

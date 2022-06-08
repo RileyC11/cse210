@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YV+1OEIf5BM8AocUTMr8uM+a6l+D67dgbM0YJAVgknw5ZQyR1w7QIELVzBLWU50RC0eCaibqhdpTIduNYRC6Xw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W08_Prove_greed_game\\W08_Prove_greed_game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

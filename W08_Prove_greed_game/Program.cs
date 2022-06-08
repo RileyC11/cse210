@@ -7,7 +7,7 @@ using W08_Prove_greed_game.Game.Directing;
 using W08_Prove_greed_game.Game.Services;
 
 
-namespace Unit04
+namespace W08_Prove_greed_game
 {
     /// <summary>
     /// The program's entry point.

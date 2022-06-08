@@ -3,7 +3,7 @@ using Raylib_cs;
 using W08_Prove_greed_game.Game.Casting;
 
 
-namespace Unit04.Game.Services
+namespace W08_Prove_greed_game.Game.Services
 {
     /// <summary>
     /// <para>Outputs the game state.</para>

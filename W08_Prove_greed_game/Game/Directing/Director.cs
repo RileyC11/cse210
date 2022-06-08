@@ -3,7 +3,7 @@ using W08_Prove_greed_game.Game.Casting;
 using W08_Prove_greed_game.Game.Services;
 
 
-namespace Unit04.Game.Directing
+namespace W08_Prove_greed_game.Game.Directing
 {
     /// <summary>
     /// <para>A person who directs the game.</para>

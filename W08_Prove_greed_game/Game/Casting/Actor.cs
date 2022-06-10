@@ -135,7 +135,7 @@ namespace W08_Prove_greed_game.Game.Casting
         /// <exception cref="ArgumentException">When text is null.</exception>
         public void SetText(string text)
         {
-            if (text == null)
+            if (text == "")
             {
                 throw new ArgumentException("text can't be null");
             }

@@ -15,6 +15,7 @@ namespace W08_Prove_greed_game.Game.Directing
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
+        private int score = 0;
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
@@ -52,6 +53,7 @@ namespace W08_Prove_greed_game.Game.Directing
             Actor robot = cast.GetFirstActor("robot");
             Point velocity = keyboardService.GetDirection();
             robot.SetVelocity(velocity);     
+            
         }
 
         /// <summary>
@@ -64,18 +66,37 @@ namespace W08_Prove_greed_game.Game.Directing
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
 
-            banner.SetText("");
+            banner.SetText($"Score: {score}");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
             foreach (Actor actor in artifacts)
             {
+                actor.MoveNext(maxX, maxY);
+            }
+
+            foreach (Actor actor in artifacts)
+            {
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
+                    Artifact artifact = (Artifact) actor;                 
+                    this.score += artifact.GetScore();
+                    banner.SetText($"Score: {score}");
+                }
+                
+                if (actor.GetPosition().GetY() == (maxY - 15))
+                {
                     Artifact artifact = (Artifact) actor;
-                    string message = artifact.GetMessage();
-                    banner.SetText(message);
+
+                    Random random = new Random();
+                    int x = artifact.GetPosition().GetX();
+                    int y = artifact.GetPosition().GetY();
+                    int randX = random.Next(15, maxX-15) * 15;   
+                    x = x + randX;
+                    Point position = new Point(x,y);
+                    artifact.SetPosition(position);
+                    artifact.MoveNext(maxX, maxY);                    
                 }
             } 
         }

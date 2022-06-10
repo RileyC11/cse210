@@ -38,20 +38,22 @@ namespace W08_Prove_greed_game.Game.Casting
 {
         public class Artifact : Actor
     {
-        private string message = "";
+        private int score = 0;
 
         public Artifact()
         {
         }
 
-        public string GetMessage()
+        public int GetScore()
         {
-            return message;
+            return score;
         }
         
-        public void SetMessage(string message)
+        public void SetScore(int score)
         {
-            this.message = message;   
+            this.score = score;   
         }
+
+
     }
 }

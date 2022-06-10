@@ -1,6 +1,7 @@
 using Raylib_cs;
 using W08_Prove_greed_game.Game.Casting;
 
+// Created it to where the player can only move left and right, not all four directions
 
 namespace W08_Prove_greed_game.Game.Services
 {
@@ -43,15 +44,18 @@ namespace W08_Prove_greed_game.Game.Services
                 dx = 1;
             }
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
-            {
-                dy = -1;
-            }
+            // We only want the player moving left and right and wrapping around the screen.
+            // We don't want them moving up or down
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
-            {
-                dy = 1;
-            }
+            // if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
+            // {
+            //     dy = -1;
+            // }
+
+            // if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
+            // {
+            //     dy = 1;
+            // }
 
             Point direction = new Point(dx, dy);
             direction = direction.Scale(cellSize);

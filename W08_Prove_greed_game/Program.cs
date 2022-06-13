@@ -59,20 +59,30 @@ namespace W08_Prove_greed_game
                 string text = "o";
                 int score = -100;
                 int dx = 0;
-                int dy = 1;
+                // int dy = 1;
+                int dy = 5;
 
-                Point direction = new Point(dx, dy);
-                direction = direction.Scale(CELL_SIZE);
-                Point velocity = direction;
+                // use the scale factor to decide how many pixels they move which changes velocity
+
+                // Point direction = new Point(dx, dy);
+                // direction = direction.Scale(CELL_SIZE);
+
+                // Point direction = new Point(dx, dy);
+                // Point velocity = direction;
+
+                Point velocity = new Point(dx, dy);
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
+                // int r = random.Next(0, 256);
+                // int g = random.Next(0, 256);
+                // int b = random.Next(0, 256);
+                int r = 100;
+                int g = 100;
+                int b = 100;
                 Color color = new Color(r, g, b);
 
                 Artifact artifact = new Artifact();
@@ -91,10 +101,15 @@ namespace W08_Prove_greed_game
                 string text = "*";
                 int score = 100;
                 int dx = 0;
-                int dy = 1;
+                // int dy = 1;
+                int dy = 5;
+
+                // use the scale factor to decide how many pixels they move which changes velocity
+
+                // Point direction = new Point(dx, dy);
+                // direction = direction.Scale(CELL_SIZE);
 
                 Point direction = new Point(dx, dy);
-                direction = direction.Scale(CELL_SIZE);
                 Point velocity = direction;
 
                 int x = random.Next(1, COLS);

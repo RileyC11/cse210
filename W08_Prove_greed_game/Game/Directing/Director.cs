@@ -74,10 +74,7 @@ namespace W08_Prove_greed_game.Game.Directing
             foreach (Actor actor in artifacts)
             {
                 actor.MoveNext(maxX, maxY);
-            }
 
-            foreach (Actor actor in artifacts)
-            {
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
                     Artifact artifact = (Artifact) actor;                 
@@ -85,18 +82,20 @@ namespace W08_Prove_greed_game.Game.Directing
                     banner.SetText($"Score: {score}");
                 }
                 
-                if (actor.GetPosition().GetY() == (maxY - 15))
+                if (actor.GetPosition().GetY() == (maxY-10))
                 {
                     Artifact artifact = (Artifact) actor;
 
-                    Random random = new Random();
                     int x = artifact.GetPosition().GetX();
                     int y = artifact.GetPosition().GetY();
-                    int randX = random.Next(15, maxX-15) * 15;   
-                    x = x + randX;
-                    Point position = new Point(x,y);
+
+                    Random random = new Random();
+                    int randX = random.Next(0, maxX) * 15;   
+                    // x = x + randX;
+
+                    Point position = new Point(randX,y);
                     artifact.SetPosition(position);
-                    artifact.MoveNext(maxX, maxY);                    
+                    //artifact.MoveNext(maxX, maxY);                    
                 }
             } 
         }

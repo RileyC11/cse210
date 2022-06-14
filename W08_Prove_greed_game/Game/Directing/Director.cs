@@ -79,7 +79,7 @@ namespace W08_Prove_greed_game.Game.Directing
                 {
                     Artifact artifact = (Artifact) actor;                 
                     this.score += artifact.GetScore();
-                    banner.SetText($"Score: {score}");
+                    // cast.RemoveActor("artifacts", actor);
                 }
                 
                 if (actor.GetPosition().GetY() == (maxY-10))
@@ -94,8 +94,8 @@ namespace W08_Prove_greed_game.Game.Directing
                     // x = x + randX;
 
                     Point position = new Point(randX,y);
-                    artifact.SetPosition(position);
-                    //artifact.MoveNext(maxX, maxY);                    
+                    // Point position = new Point(x,y);
+                    artifact.SetPosition(position);                    
                 }
             } 
         }

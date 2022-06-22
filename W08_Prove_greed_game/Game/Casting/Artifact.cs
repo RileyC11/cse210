@@ -36,7 +36,7 @@
 
 namespace W08_Prove_greed_game.Game.Casting
 {
-        public class Artifact : Actor
+    public class Artifact : Actor
     {
         private int score = 0;
 

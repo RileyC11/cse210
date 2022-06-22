@@ -55,12 +55,13 @@ namespace W09_Prove_cycle_game.Game.Scripting
         public void HandleSegmentCollisions(Cast cast)
         {
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
             Actor head = snake.GetHead();
-            Actor head1 = snake1.GetHead();
             List<Actor> body = snake.GetBody();
-            List<Actor> body1 = snake1.GetBody();
             Score score = (Score)cast.GetFirstActor("score");
+
+            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+            Actor head1 = snake1.GetHead();
+            List<Actor> body1 = snake1.GetBody();
             Score score1 = (Score)cast.GetFirstActor("score1");
 
             foreach (Actor segment in body)
@@ -93,12 +94,13 @@ namespace W09_Prove_cycle_game.Game.Scripting
         public void HandleSnakeCollision(Cast cast)
         {
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
             Actor head = snake.GetHead();
-            Actor head1 = snake1.GetHead();
             List<Actor> body = snake.GetBody();
-            List<Actor> body1 = snake1.GetBody();
             Score score = (Score)cast.GetFirstActor("score");
+
+            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+            Actor head1 = snake1.GetHead();
+            List<Actor> body1 = snake1.GetBody();
             Score score1 = (Score)cast.GetFirstActor("score1");
 
             if (head.GetPosition().Equals(head1.GetPosition()))
@@ -160,27 +162,6 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                // snake.GrowTail(Constants.WHITE);
-                // snake1.GrowTail(Constants.LIGHT_BLUE);
-                // snake.SetVelocity(Constants.SNAKE_INT_VEL);
-                // snake1.SetVelocity(Constants.SNAKE1_INT_VEL);
-                // snake.TurnHead(Constants.SNAKE_INT_VEL);
-                // snake1.TurnHead(Constants.SNAKE1_INT_VEL);
-
-
-                // Thread.Sleep(1000);
-                // isGameOver = false;
-                // winnerIs1 = false;
-                
-                // cast.RemoveActor("snake", snake);
-                // cast.RemoveActor("snake1", snake1);
-                // cast.RemoveActor("messages", message);
-
-                // cast.AddActor("snake", new Snake(Constants.SNAKE_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE_INT_VEL));
-                // cast.AddActor("snake1", new Snake(Constants.SNAKE1_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE1_INT_VEL));
-
-                // Restart restart = new Restart(cast);
-                // restart.RestartGame(cast);
             }
 
             else if (isGameOver == true && winnerIs1 == false)
@@ -205,23 +186,6 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                // snake.GrowTail(Constants.HEAVY_ORANGE);
-                // snake1.GrowTail(Constants.WHITE);
-
-
-                // isGameOver = false;
-                // winnerIs1 = false;
-                // Thread.Sleep(1000);
-
-                // cast.RemoveActor("snake", snake);
-                // cast.RemoveActor("snake1", snake1);
-                // cast.RemoveActor("messages", message);
-
-                // cast.AddActor("snake", new Snake(Constants.SNAKE_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE_INT_VEL));
-                // cast.AddActor("snake1", new Snake(Constants.SNAKE1_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE1_INT_VEL));
-
-                // Restart restart = new Restart(cast);
-                // restart.RestartGame(cast);
             }              
         }
 
@@ -234,6 +198,8 @@ namespace W09_Prove_cycle_game.Game.Scripting
             Snake snake1 = (Snake)cast.GetFirstActor("snake1");
             Actor message = (Actor)cast.GetFirstActor("messages");
             snake.TurnHead(new Point(15, 0));
+
+            // Uncommenting this causes game to run once and then close.
             // controlActorsAction.direction = new Point(15, 0);
             // controlActorsAction.direction1 = new Point(-15, 0);
 
@@ -244,12 +210,16 @@ namespace W09_Prove_cycle_game.Game.Scripting
 
             cast.RemoveActor("snake", snake);
             cast.RemoveActor("snake1", snake1);
+
             snake = new Snake(Constants.SNAKE_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE_INT_VEL);
+            snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE1_INT_VEL);
+
             Point vel = new Point(15, 0);
             Actor head = snake.GetHead();
             head.SetVelocity(vel);
+
             cast.AddActor("snake", snake);
-            cast.AddActor("snake1", new Snake(Constants.SNAKE1_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE1_INT_VEL));
+            cast.AddActor("snake1", snake1);
             
         }
 

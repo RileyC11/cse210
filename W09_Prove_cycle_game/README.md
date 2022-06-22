@@ -1,7 +1,4 @@
-# Robot Finds Kitten
-Simon Carless once described robotfindskitten as "less a game and more a way of 
-life ... It's fun to wander around until you find a kitten, at which point you feel 
-happy and can start again". I don't think I could have said it better myself!
+# Cycle (TRON Biker in disguise)
 
 ---
 ## Getting Started
@@ -21,17 +18,13 @@ arrow or "start debugging" button.
 ## Project Structure
 The project files and folders are organized as follows:
 ```
-root                    (project root folder)
-+-- Game                (source code folder)
-+-- Program.cs          (program entry point)    
-+-- README.md           (general info)
-+-- Unit04.csproj       (dotnet project file)
+root                                    (project root folder)
++-- Game                                (source code folder)
++-- Program.cs                          (program entry point)    
++-- README.md                           (general info)
++-- W09_Prove_cycle_game.csproj         (dotnet project file)
 ```
 
 ## Required Technologies
 * dotnet 6.0
-* raylib-cs 3.7.0.1
-
-## Authors
-* Matt Manley (manleym@byui.edu)
-* Scott Burton (burtons@byui.edu)
+* raylib-cs 4.0.0.1

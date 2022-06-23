@@ -26,10 +26,10 @@ namespace W09_Prove_cycle_game
         public static Color LIGHT_BLUE = new Color(111, 195, 223);
         public static Color HEAVY_ORANGE =  new Color(223, 116, 12);
 
-        public static Point SNAKE_INT_POS = new Point(45, 300);
-        public static Point SNAKE1_INT_POS = new Point(855, 300);
-        public static Point SNAKE_INT_VEL = new Point(15, 0);
-        public static Point SNAKE1_INT_VEL = new Point(-15, 0);
+        public static Point SNAKE1_INT_POS = new Point(45, 300);
+        public static Point SNAKE2_INT_POS = new Point(855, 300);
+        public static Point SNAKE1_INT_VEL = new Point(15, 0);
+        public static Point SNAKE2_INT_VEL = new Point(-15, 0);
     }
 }
 

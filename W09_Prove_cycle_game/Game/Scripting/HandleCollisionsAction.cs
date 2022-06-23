@@ -54,102 +54,144 @@ namespace W09_Prove_cycle_game.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         public void HandleSegmentCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Actor head = snake.GetHead();
-            List<Actor> body = snake.GetBody();
-            Score score = (Score)cast.GetFirstActor("score");
-
             Snake snake1 = (Snake)cast.GetFirstActor("snake1");
             Actor head1 = snake1.GetHead();
             List<Actor> body1 = snake1.GetBody();
             Score score1 = (Score)cast.GetFirstActor("score1");
 
-            foreach (Actor segment in body)
+            Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+            Actor head2 = snake2.GetHead();
+            List<Actor> body2 = snake2.GetBody();
+            Score score2 = (Score)cast.GetFirstActor("score2");
+
+            //  condition if player 1 runs into themselves
+            foreach (Actor segment in body1)
             {
-                if (segment.GetPosition().Equals(head.GetPosition()))
+                if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
-                    snake.GrowTail(Constants.WHITE);
+                    // snake1.GrowTail(Constants.WHITE);
+                    score2.AddPoints(1);
+                    isGameOver = true;
+                    winnerIs1 = false;
+                }
+            }
+
+            //  condition if player 2 runs into themselves
+            foreach (Actor segment in body2)
+            {
+                if (segment.GetPosition().Equals(head2.GetPosition()))
+                {
+                    // snake2.GrowTail(Constants.WHITE);
                     score1.AddPoints(1);
                     isGameOver = true;
                     winnerIs1 = true;
                 }
             }
 
-            foreach (Actor segment1 in body1)
-            {
-                if (segment1.GetPosition().Equals(head1.GetPosition()))
-                {
-                    snake1.GrowTail(Constants.WHITE);
-                    score.AddPoints(1);
-                    isGameOver = true;
-                    winnerIs1 = false;
-                }
-            }
-
-            score.DisplayPoints("Player 1");
-            score1.DisplayPoints("Player 2");
+            score1.DisplayPoints("Player 1");
+            score2.DisplayPoints("Player 2");
         }
 
 
         public void HandleSnakeCollision(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Actor head = snake.GetHead();
-            List<Actor> body = snake.GetBody();
-            Score score = (Score)cast.GetFirstActor("score");
-
             Snake snake1 = (Snake)cast.GetFirstActor("snake1");
             Actor head1 = snake1.GetHead();
             List<Actor> body1 = snake1.GetBody();
             Score score1 = (Score)cast.GetFirstActor("score1");
 
-            if (head.GetPosition().Equals(head1.GetPosition()))
+            Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+            Actor head2 = snake2.GetHead();
+            List<Actor> body2 = snake2.GetBody();
+            Score score2 = (Score)cast.GetFirstActor("score2");
+
+            // condition for heads colliding (tie)
+            if (head1.GetPosition().Equals(head2.GetPosition()))
             {
                 isGameOver = true;
                 winnerTie = true;
             }
 
-            foreach (Actor segment in body)
+            // condition for Player 1 running into Player 2
+            foreach (Actor segment in body2)
             {
                 if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
                     isGameOver = true;
                     winnerIs1 = false;
-                    score.AddPoints(1);
-                    snake.GrowTail(Constants.HEAVY_ORANGE);
-                    snake1.GrowTail(Constants.WHITE);
+
+                    score2.AddPoints(1);
+                    // snake2.GrowTail(Constants.LIGHT_BLUE);
+
+                    // snake1.GrowTail(Constants.WHITE);
+                    head1.SetColor(Constants.WHITE);
                 }
             }
 
-            foreach (Actor segment1 in body1)
+            // condition for Player 2 running into Player 1
+            foreach (Actor segment in body1)
             {
-                if (segment1.GetPosition().Equals(head.GetPosition()))
+                if (segment.GetPosition().Equals(head2.GetPosition()))
                 {
                     isGameOver = true;
                     winnerIs1 = true;
+
                     score1.AddPoints(1);
-                    snake.GrowTail(Constants.WHITE);
-                    snake1.GrowTail(Constants.LIGHT_BLUE);
+                    // snake1.GrowTail(Constants.HEAVY_ORANGE);
+
+                    // snake2.GrowTail(Constants.WHITE);
+                    head2.SetColor(Constants.WHITE);
                 }
             } 
 
-            score.DisplayPoints("Player 1");
-            score1.DisplayPoints("Player 2");           
+            score1.DisplayPoints("Player 1");
+            score2.DisplayPoints("Player 2");           
         }
         
         public void HandleGameOver(Cast cast)
         {   
-            if (isGameOver == true && winnerIs1 == true)
+            // condition for game over, Player 1 won, and it isn't a tie
+            if (isGameOver == true && winnerIs1 == true && winnerTie == false)
             {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
                 Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-        
-                List<Actor> segments = snake.GetSegments();
                 List<Actor> segments1 = snake1.GetSegments();
 
-                // create a "game over" message
+                Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+                List<Actor> segments2 = snake2.GetSegments();
+
+                // create a "game over" message at center of the top of screen
                 int x = Constants.MAX_X / 2;
-                int y = Constants.MAX_Y / 2;
+                int y = 0;
+                Point position = new Point(x, y);
+
+                Actor message = new Actor();
+                message.SetText("Player 1 won!");
+                message.SetPosition(position);
+                cast.AddActor("messages", message);
+                
+                // make Player 2's head white
+                Actor head2 = snake2.GetHead();
+                head2.SetColor(Constants.WHITE);
+
+                // make everything white for Player 2
+                foreach (Actor segment in segments2)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
+            }
+
+            // condition for game over, Player 2 won, and it isn't a tie
+            else if (isGameOver == true && winnerIs1 == false && winnerTie == false)
+            {
+                Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+                List<Actor> segments1 = snake1.GetSegments();
+
+                Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+                List<Actor> segments2 = snake2.GetSegments();
+
+                // create a "game over" message at center of the top of screen
+                int x = Constants.MAX_X / 2;
+                int y = 0;
                 Point position = new Point(x, y);
 
                 Actor message = new Actor();
@@ -157,47 +199,67 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
 
-                // make everything white
-                foreach (Actor segment in segments)
-                {
-                    segment.SetColor(Constants.WHITE);
-                }
-            }
+                // make Player 1's head white
+                Actor head1 = snake1.GetHead();
+                head1.SetColor(Constants.WHITE);
 
-            else if (isGameOver == true && winnerIs1 == false)
-            {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
-                Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-
-                List<Actor> segments1 = snake1.GetSegments();
-
-                // create a "game over" message
-                int x = Constants.MAX_X / 2;
-                int y = Constants.MAX_Y / 2;
-                Point position = new Point(x, y);
-
-                Actor message = new Actor();
-                message.SetText("Player 1 won!");
-                message.SetPosition(position);
-                cast.AddActor("messages", message);
-
-                // make everything white
+                // make everything white for Player 1
                 foreach (Actor segment in segments1)
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-            }              
+            }
+            
+            // condition for game over and it is a tie
+            else if (isGameOver == true && winnerTie == true)
+            {
+                Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+                List<Actor> segments1 = snake1.GetSegments();
+
+                Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+                List<Actor> segments2 = snake2.GetSegments();
+
+                // create a "game over" message at center of the top of screen
+                int x = Constants.MAX_X / 2;
+                int y = 0;
+                Point position = new Point(x, y);
+
+                Actor message = new Actor();
+                message.SetText("Tie!");
+                message.SetPosition(position);
+                cast.AddActor("messages", message);
+
+                Actor head1 = snake1.GetHead();
+                Actor head2 = snake2.GetHead();
+
+                // make both player's heads white
+                head1.SetColor(Constants.WHITE);                
+                head2.SetColor(Constants.WHITE);
+
+                // make everything white for Player 1
+                foreach (Actor segment in segments1)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
+
+                // make everything white for Player 2                
+                foreach (Actor segment in segments2)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
+            }
         }
 
         public void HandleRestart(Cast cast)
         {
             isGameOver = false;
             winnerIs1 = false;
+            winnerTie = false;
 
-            Snake snake = (Snake)cast.GetFirstActor("snake");
             Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+            Snake snake2 = (Snake)cast.GetFirstActor("snake2");
             Actor message = (Actor)cast.GetFirstActor("messages");
-            snake.TurnHead(new Point(15, 0));
+            snake1.TurnHead(new Point(15, 0));
 
             // Uncommenting this causes game to run once and then close.
             // controlActorsAction.direction = new Point(15, 0);
@@ -208,18 +270,18 @@ namespace W09_Prove_cycle_game.Game.Scripting
             message.SetPosition(new Point(0,0));
             cast.RemoveActor("messages", message);
 
-            cast.RemoveActor("snake", snake);
             cast.RemoveActor("snake1", snake1);
+            cast.RemoveActor("snake2", snake2);
 
-            snake = new Snake(Constants.SNAKE_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE_INT_VEL);
-            snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE1_INT_VEL);
+            snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE1_INT_VEL);
+            snake2 = new Snake(Constants.SNAKE2_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE2_INT_VEL);
 
             Point vel = new Point(15, 0);
-            Actor head = snake.GetHead();
-            head.SetVelocity(vel);
+            Actor head1 = snake1.GetHead();
+            head1.SetVelocity(vel);
 
-            cast.AddActor("snake", snake);
             cast.AddActor("snake1", snake1);
+            cast.AddActor("snake2", snake2);
             
         }
 

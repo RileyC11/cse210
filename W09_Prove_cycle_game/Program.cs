@@ -20,10 +20,10 @@ namespace W09_Prove_cycle_game
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("snake", new Snake(Constants.SNAKE_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE_INT_VEL));
-            cast.AddActor("snake1", new Snake(Constants.SNAKE1_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE1_INT_VEL));
-            cast.AddActor("score", new Score("Player 1"));
-            cast.AddActor("score1", new Score("Player 2"));
+            cast.AddActor("snake1", new Snake(Constants.SNAKE1_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE1_INT_VEL));
+            cast.AddActor("snake2", new Snake(Constants.SNAKE2_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE2_INT_VEL));
+            cast.AddActor("score1", new Score("Player 1"));
+            cast.AddActor("score2", new Score("Player 2"));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

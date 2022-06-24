@@ -1,0 +1,5 @@
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W10_Prove_cycle_game\obj\Debug\net6.0\W10_Prove_cycle_game.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W10_Prove_cycle_game\obj\Debug\net6.0\W10_Prove_cycle_game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W10_Prove_cycle_game\obj\Debug\net6.0\W10_Prove_cycle_game.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W10_Prove_cycle_game\obj\Debug\net6.0\W10_Prove_cycle_game.AssemblyInfo.cs
+C:\Users\HP\OneDrive - BYU-Idaho\CSE 210\cse210\W10_Prove_cycle_game\obj\Debug\net6.0\W10_Prove_cycle_game.csproj.CoreCompileInputs.cache

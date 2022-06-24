@@ -1,9 +1,9 @@
-using W09_Prove_cycle_game.Game.Casting;
-using W09_Prove_cycle_game.Game.Services;
-using W09_Prove_cycle_game.Game.Scripting;
+using W10_Prove_cycle_game.Game.Casting;
+using W10_Prove_cycle_game.Game.Services;
+using W10_Prove_cycle_game.Game.Scripting;
 
 
-namespace W09_Prove_cycle_game.Game.Scripting
+namespace W10_Prove_cycle_game.Game.Scripting
 {
     /// <summary>
     /// <para>An input action that controls the snake.</para>
@@ -11,7 +11,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
     /// The responsibility of ControlActorsAction is to get the direction and move the snake's head.
     /// </para>
     /// </summary>
-    public class ControlActorsAction : Action
+    public class ControlActorsAction : Actions
     {
         private KeyboardService keyboardService;
         public Point direction1 = new Point(Constants.CELL_SIZE, 0);

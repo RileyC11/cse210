@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
-using W09_Prove_cycle_game.Game.Casting;
-using W09_Prove_cycle_game.Game.Services;
+using W10_Prove_cycle_game.Game.Casting;
+using W10_Prove_cycle_game.Game.Services;
 
 
-namespace W09_Prove_cycle_game.Game.Scripting
+namespace W10_Prove_cycle_game.Game.Scripting
 {
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
@@ -15,13 +15,11 @@ namespace W09_Prove_cycle_game.Game.Scripting
     /// collides with the food, or the snake collides with its segments, or the game is over.
     /// </para>
     /// </summary>
-    public class HandleCollisionsAction : Action
+    public class HandleCollisionsAction : Actions
     {
         public bool isGameOver = false;
         public bool winnerIs1 = false;
         public bool winnerTie = false;
-        public ControlActorsAction controlActorsAction;
-
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
@@ -35,6 +33,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
         {
             HandleSegmentCollisions(cast);
             HandleSnakeCollision(cast);
+            HandleGameOver(cast);
         }
 
         /// <summary>
@@ -175,6 +174,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+                snake2.GrowTail(Constants.WHITE);
             }
 
             // condition for game over, Player 2 won, and it isn't a tie
@@ -205,6 +205,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+                snake1.GrowTail(Constants.WHITE);
             }
             
             // condition for game over and it is a tie
@@ -244,44 +245,11 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+
+                snake1.GrowTail(Constants.WHITE);
+                snake2.GrowTail(Constants.WHITE);
             }
         }
-
-        public void HandleRestart(Cast cast)
-        {
-            isGameOver = false;
-            winnerIs1 = false;
-            winnerTie = false;
-
-            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-            Snake snake2 = (Snake)cast.GetFirstActor("snake2");
-            Actor message = (Actor)cast.GetFirstActor("messages");
-            snake1.TurnHead(new Point(15, 0));
-
-            // Uncommenting this causes game to run once and then close.
-            // controlActorsAction.direction = new Point(15, 0);
-            // controlActorsAction.direction1 = new Point(-15, 0);
-
-            Thread.Sleep(2000);
-            message.SetText("");
-            message.SetPosition(new Point(0,0));
-            cast.RemoveActor("messages", message);
-
-            cast.RemoveActor("snake1", snake1);
-            cast.RemoveActor("snake2", snake2);
-
-            snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE1_INT_VEL);
-            snake2 = new Snake(Constants.SNAKE2_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE2_INT_VEL);
-
-            Point vel = new Point(15, 0);
-            Actor head1 = snake1.GetHead();
-            head1.SetVelocity(vel);
-
-            cast.AddActor("snake1", snake1);
-            cast.AddActor("snake2", snake2);
-            
-        }
-
 
     }
 }

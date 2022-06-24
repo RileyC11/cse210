@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "z3PMOKZaXp5gUbL37vhaSPb9kiF5kpLq+dnnQCCee0EeanM3EtyWjKw1Lyk7MPSFeal7oA/WPxHQhUpU7T8wTg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W10_Prove_cycle_game\\W10_Prove_cycle_game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

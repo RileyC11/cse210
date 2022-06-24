@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using W09_Prove_cycle_game.Game.Casting;
-using W09_Prove_cycle_game.Game.Scripting;
-using W09_Prove_cycle_game.Game.Services;
+using W10_Prove_cycle_game.Game.Casting;
+using W10_Prove_cycle_game.Game.Scripting;
+using W10_Prove_cycle_game.Game.Services;
 
 
-namespace W09_Prove_cycle_game.Game.Directing
+namespace W10_Prove_cycle_game.Game.Directing
 {
     /// <summary>
     /// <para>A person who directs the game.</para>
@@ -37,7 +37,6 @@ namespace W09_Prove_cycle_game.Game.Directing
             {
                 ExecuteActions("input", cast, script);
                 ExecuteActions("update", cast, script);
-                ExecuteActions("restart", cast, script);
                 ExecuteActions("output", cast, script);
             }
             videoService.CloseWindow();
@@ -51,8 +50,8 @@ namespace W09_Prove_cycle_game.Game.Directing
         /// <param name="script">The script of actions.</param>
         private void ExecuteActions(string group, Cast cast, Script script)
         {
-            List<Action> actions = script.GetActions(group);
-            foreach(Action action in actions)
+            List<Actions> actions = script.GetActions(group);
+            foreach(Actions action in actions)
             {
                 action.Execute(cast, script);
             }

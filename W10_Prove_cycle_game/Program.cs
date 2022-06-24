@@ -1,11 +1,11 @@
-﻿using W09_Prove_cycle_game.Game.Casting;
-using W09_Prove_cycle_game.Game.Directing;
-using W09_Prove_cycle_game.Game.Scripting;
-using W09_Prove_cycle_game.Game.Services;
-using W09_Prove_cycle_game;
+﻿using W10_Prove_cycle_game.Game.Casting;
+using W10_Prove_cycle_game.Game.Directing;
+using W10_Prove_cycle_game.Game.Scripting;
+using W10_Prove_cycle_game.Game.Services;
+using W10_Prove_cycle_game;
 
 
-namespace W09_Prove_cycle_game
+namespace W10_Prove_cycle_game
 {
     /// <summary>
     /// The program's entry point.
@@ -33,20 +33,13 @@ namespace W09_Prove_cycle_game
             // create the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
-            
-            ControlActorsAction controlActorsAction = new ControlActorsAction(keyboardService);
-            MoveActorsAction moveActorsAction = new MoveActorsAction();
-            HandleCollisionsAction handleCollisionsAction = new HandleCollisionsAction();
-            DrawActorsAction drawActorsAction = new DrawActorsAction(videoService);
-            RestartGame restartGame = new RestartGame(handleCollisionsAction, controlActorsAction);
-           
+         
             // create the script
             Script script = new Script();
-            script.AddAction("input", controlActorsAction);
-            script.AddAction("update", moveActorsAction);
-            script.AddAction("update", handleCollisionsAction);
-            script.AddAction("output", drawActorsAction);
-            script.AddAction("restart", restartGame);
+            script.AddAction("input", new ControlActorsAction(keyboardService));
+            script.AddAction("update", new MoveActorsAction());
+            script.AddAction("update", new HandleCollisionsAction());
+            script.AddAction("output", new DrawActorsAction(videoService));
 
             // start the game
             Director director = new Director(videoService);

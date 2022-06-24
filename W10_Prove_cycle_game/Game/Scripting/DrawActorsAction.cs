@@ -1,15 +1,15 @@
 using System.Collections.Generic;
-using W09_Prove_cycle_game.Game.Casting;
-using W09_Prove_cycle_game.Game.Services;
+using W10_Prove_cycle_game.Game.Casting;
+using W10_Prove_cycle_game.Game.Services;
 
 
-namespace W09_Prove_cycle_game.Game.Scripting
+namespace W10_Prove_cycle_game.Game.Scripting
 {
     /// <summary>
     /// <para>An output action that draws all the actors.</para>
     /// <para>The responsibility of DrawActorsAction is to draw each of the actors.</para>
     /// </summary>
-    public class DrawActorsAction : Action
+    public class DrawActorsAction : Actions
     {
         private VideoService videoService;
 

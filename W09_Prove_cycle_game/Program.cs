@@ -38,7 +38,7 @@ namespace W09_Prove_cycle_game
             MoveActorsAction moveActorsAction = new MoveActorsAction();
             HandleCollisionsAction handleCollisionsAction = new HandleCollisionsAction();
             DrawActorsAction drawActorsAction = new DrawActorsAction(videoService);
-            RestartGame restartGame = new RestartGame(handleCollisionsAction, controlActorsAction);
+            // RestartGame restartGame = new RestartGame(handleCollisionsAction, controlActorsAction);
            
             // create the script
             Script script = new Script();
@@ -46,7 +46,7 @@ namespace W09_Prove_cycle_game
             script.AddAction("update", moveActorsAction);
             script.AddAction("update", handleCollisionsAction);
             script.AddAction("output", drawActorsAction);
-            script.AddAction("restart", restartGame);
+            // script.AddAction("restart", restartGame);
 
             // start the game
             Director director = new Director(videoService);

@@ -11,8 +11,8 @@ namespace W09_Prove_cycle_game.Game.Casting
     public class Snake : Actor
     {
         private List<Actor> segments = new List<Actor>(); 
-        private List<Point> points = new List<Point>();
-        private Point position = new Point(0,0);
+        public Point lastHead1 = new Point(0, 0);
+        public Point lastHead2 = new Point(0, 0);
 
         /// <summary>
         /// Constructs a new instance of a Snake.
@@ -53,13 +53,24 @@ namespace W09_Prove_cycle_game.Game.Casting
         /// Grows the snake's tail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTail(Color color)
+        public void GrowTail(Color color, string snake)
         {
             Actor head = segments.First<Actor>();
             Point position = head.GetPosition();
 
+            
             Actor segment = new Actor();
-            segment.SetPosition(position);
+
+            if (snake == "snake1")
+            {
+                segment.SetPosition(lastHead1);
+            }
+            else if (snake == "snake2")
+            {
+                segment.SetPosition(lastHead2);
+            }
+
+            // segment.SetPosition(lastHead);
             segment.SetVelocity(new Point(0,0));
             segment.SetText("#");
             segment.SetColor(color);
@@ -71,6 +82,7 @@ namespace W09_Prove_cycle_game.Game.Casting
         public override void MoveNext()
         {
             Actor head = GetHead();
+            // Point lastHead = head.GetPosition();
             head.MoveNext();
         }
 

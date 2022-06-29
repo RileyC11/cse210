@@ -37,7 +37,7 @@ namespace W09_Prove_cycle_game.Game.Directing
             {
                 ExecuteActions("input", cast, script);
                 ExecuteActions("update", cast, script);
-                ExecuteActions("restart", cast, script);
+                // ExecuteActions("restart", cast, script);
                 ExecuteActions("output", cast, script);
             }
             videoService.CloseWindow();

@@ -17,11 +17,9 @@ namespace W09_Prove_cycle_game.Game.Scripting
     /// </summary>
     public class HandleCollisionsAction : Action
     {
-        public bool isGameOver = false;
-        public bool winnerIs1 = false;
-        public bool winnerTie = false;
-        public ControlActorsAction controlActorsAction;
-
+        public static bool isGameOver = false;
+        public static bool winnerIs1 = false;
+        public static bool tie = false;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
@@ -33,8 +31,17 @@ namespace W09_Prove_cycle_game.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            HandleSegmentCollisions(cast);
-            HandleSnakeCollision(cast);
+             if (isGameOver == false)
+            {
+                HandleSegmentCollisions(cast);
+                HandleSnakeCollision(cast);
+            }
+            else if (isGameOver == true)
+            {
+                HandleGameOver(cast);
+                //HandleRestart(cast);
+            }
+
         }
 
         /// <summary>
@@ -53,16 +60,14 @@ namespace W09_Prove_cycle_game.Game.Scripting
             List<Actor> body2 = snake2.GetBody();
             Score score2 = (Score)cast.GetFirstActor("score2");
 
-            //  condition if player 1 runs into themselves
+            // condition if player 1 runs into themselves
             foreach (Actor segment in body1)
             {
                 if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
-                    // snake1.GrowTail(Constants.WHITE);
                     score2.AddPoints(1);
                     isGameOver = true;
                     winnerIs1 = false;
-                    head1.SetColor(Constants.WHITE);
                 }
             }
 
@@ -71,11 +76,9 @@ namespace W09_Prove_cycle_game.Game.Scripting
             {
                 if (segment.GetPosition().Equals(head2.GetPosition()))
                 {
-                    // snake2.GrowTail(Constants.WHITE);
                     score1.AddPoints(1);
                     isGameOver = true;
                     winnerIs1 = true;
-                    head2.SetColor(Constants.WHITE);
                 }
             }
 
@@ -100,9 +103,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
             if (head1.GetPosition().Equals(head2.GetPosition()))
             {
                 isGameOver = true;
-                winnerTie = true;
-                head1.SetColor(Constants.WHITE);
-                head2.SetColor(Constants.WHITE);
+                tie = true;
             }
 
             else
@@ -114,13 +115,8 @@ namespace W09_Prove_cycle_game.Game.Scripting
                     {
                         isGameOver = true;
                         winnerIs1 = false;
-
                         score2.AddPoints(1);
-                        // snake2.GrowTail(Constants.LIGHT_BLUE);
-
-                        // snake1.GrowTail(Constants.WHITE);
-                        head1.SetColor(Constants.WHITE);
-                    }
+                   }
                 }
 
                 // condition for Player 2 running into Player 1
@@ -130,46 +126,37 @@ namespace W09_Prove_cycle_game.Game.Scripting
                     {
                         isGameOver = true;
                         winnerIs1 = true;
-
                         score1.AddPoints(1);
-                        // snake1.GrowTail(Constants.HEAVY_ORANGE);
-
-                        // snake2.GrowTail(Constants.WHITE);
-                        head2.SetColor(Constants.WHITE);
                     }
                 } 
             }
             
-
             score1.DisplayPoints("Player 1");
             score2.DisplayPoints("Player 2");           
         }
         
         public void HandleGameOver(Cast cast)
         {   
+            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+            List<Actor> segments1 = snake1.GetSegments();
+
+            Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+            List<Actor> segments2 = snake2.GetSegments();
+
+            int x = Constants.MAX_X / 2;
+            int y = 0;
+            Point position = new Point(x, y);
+
+
             // condition for game over, Player 1 won, and it isn't a tie
-            if (isGameOver == true && winnerIs1 == true && winnerTie == false)
+            if (isGameOver == true && winnerIs1 == true && tie == false)
             {
-                Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-                List<Actor> segments1 = snake1.GetSegments();
-
-                Snake snake2 = (Snake)cast.GetFirstActor("snake2");
-                List<Actor> segments2 = snake2.GetSegments();
-
                 // create a "game over" message at center of the top of screen
-                int x = Constants.MAX_X / 2;
-                int y = 0;
-                Point position = new Point(x, y);
-
                 Actor message = new Actor();
                 message.SetText("Player 1 won!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
                 
-                // make Player 2's head white
-                Actor head2 = snake2.GetHead();
-                head2.SetColor(Constants.WHITE);
-
                 // make everything white for Player 2
                 foreach (Actor segment in segments2)
                 {
@@ -178,27 +165,13 @@ namespace W09_Prove_cycle_game.Game.Scripting
             }
 
             // condition for game over, Player 2 won, and it isn't a tie
-            else if (isGameOver == true && winnerIs1 == false && winnerTie == false)
+            else if (isGameOver == true && winnerIs1 == false && tie == false)
             {
-                Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-                List<Actor> segments1 = snake1.GetSegments();
-
-                Snake snake2 = (Snake)cast.GetFirstActor("snake2");
-                List<Actor> segments2 = snake2.GetSegments();
-
                 // create a "game over" message at center of the top of screen
-                int x = Constants.MAX_X / 2;
-                int y = 0;
-                Point position = new Point(x, y);
-
                 Actor message = new Actor();
                 message.SetText("Player 2 won!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
-
-                // make Player 1's head white
-                Actor head1 = snake1.GetHead();
-                head1.SetColor(Constants.WHITE);
 
                 // make everything white for Player 1
                 foreach (Actor segment in segments1)
@@ -208,30 +181,13 @@ namespace W09_Prove_cycle_game.Game.Scripting
             }
             
             // condition for game over and it is a tie
-            else if (isGameOver == true && winnerTie == true)
+            else if (isGameOver == true && tie == true)
             {
-                Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-                List<Actor> segments1 = snake1.GetSegments();
-
-                Snake snake2 = (Snake)cast.GetFirstActor("snake2");
-                List<Actor> segments2 = snake2.GetSegments();
-
                 // create a "game over" message at center of the top of screen
-                int x = Constants.MAX_X / 2;
-                int y = 0;
-                Point position = new Point(x, y);
-
                 Actor message = new Actor();
                 message.SetText("Tie!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
-
-                Actor head1 = snake1.GetHead();
-                Actor head2 = snake2.GetHead();
-
-                // make both player's heads white
-                head1.SetColor(Constants.WHITE);                
-                head2.SetColor(Constants.WHITE);
 
                 // make everything white for Player 1
                 foreach (Actor segment in segments1)
@@ -251,24 +207,16 @@ namespace W09_Prove_cycle_game.Game.Scripting
         {
             isGameOver = false;
             winnerIs1 = false;
-            winnerTie = false;
+            tie = false;
 
             Snake snake1 = (Snake)cast.GetFirstActor("snake1");
             Snake snake2 = (Snake)cast.GetFirstActor("snake2");
             Actor message = (Actor)cast.GetFirstActor("messages");
-            snake1.TurnHead(new Point(15, 0));
 
-            // Uncommenting this causes game to run once and then close.
-            // controlActorsAction.direction = new Point(15, 0);
-            // controlActorsAction.direction1 = new Point(-15, 0);
-
-            Thread.Sleep(2000);
-            message.SetText("");
-            message.SetPosition(new Point(0,0));
-            cast.RemoveActor("messages", message);
-
+            // Thread.Sleep(2000);
             cast.RemoveActor("snake1", snake1);
             cast.RemoveActor("snake2", snake2);
+            cast.RemoveActor("messages", message);
 
             snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE1_INT_VEL);
             snake2 = new Snake(Constants.SNAKE2_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE2_INT_VEL);
@@ -279,9 +227,9 @@ namespace W09_Prove_cycle_game.Game.Scripting
 
             cast.AddActor("snake1", snake1);
             cast.AddActor("snake2", snake2);
-            
+
+            Constants.direction1 = new Point(15, 0);
+            Constants.direction2 = new Point(-15, 0);
         }
-
-
     }
 }

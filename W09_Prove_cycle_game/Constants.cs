@@ -20,7 +20,7 @@ namespace W09_Prove_cycle_game
 
         public static int FRAME_RATE = 15;
         public static int FONT_SIZE = 15;
-        public static string CAPTION = "Snake";
+        public static string CAPTION = "Cycle";
 
         public static Color WHITE = new Color(255, 255, 255);
         public static Color LIGHT_BLUE = new Color(111, 195, 223);
@@ -30,6 +30,9 @@ namespace W09_Prove_cycle_game
         public static Point SNAKE2_INT_POS = new Point(855, 300);
         public static Point SNAKE1_INT_VEL = new Point(15, 0);
         public static Point SNAKE2_INT_VEL = new Point(-15, 0);
+
+        public static Point direction1 = new Point(Constants.CELL_SIZE, 0);
+        public static Point direction2 = new Point(-Constants.CELL_SIZE, 0);
     }
 }
 

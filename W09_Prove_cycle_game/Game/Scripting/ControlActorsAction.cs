@@ -14,8 +14,8 @@ namespace W09_Prove_cycle_game.Game.Scripting
     public class ControlActorsAction : Action
     {
         private KeyboardService keyboardService;
-        public Point direction1 = new Point(0, 0);
-        public Point direction2 = new Point(0, 0);
+        public static Point direction1 = new Point(0, 0);
+        public static Point direction2 = new Point(0, 0);
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.

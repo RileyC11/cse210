@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "+hRt/o4QTEvF3piONgvkGrRUHvmtgHTCMPX7UXyZq105Qdgush5fao8AvVbJe7PsdkHC0Zr7Sdv1SkrDzmyUHw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W12_Final_tanks_game\\W12_Final_tanks_game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

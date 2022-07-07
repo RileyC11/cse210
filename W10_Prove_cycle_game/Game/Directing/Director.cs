@@ -50,8 +50,8 @@ namespace W10_Prove_cycle_game.Game.Directing
         /// <param name="script">The script of actions.</param>
         private void ExecuteActions(string group, Cast cast, Script script)
         {
-            List<Actions> actions = script.GetActions(group);
-            foreach(Actions action in actions)
+            List<Scripting.Action> actions = script.GetActions(group);
+            foreach(Scripting.Action action in actions)
             {
                 action.Execute(cast, script);
             }

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XrGs/FkF1sCcS8d7IrzV1HtnXgZrhRmm6wiPuGDmFqTeVwDtoHBuox7nfMf3H1vzzI8x6Mip7yFX7uOjgBtPqw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W11_Prove_retry\\W11_Prove_retry.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

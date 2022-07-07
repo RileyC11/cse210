@@ -20,6 +20,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
         public static bool isGameOver = false;
         public static bool winnerIs1 = false;
         public static bool tie = false;
+        public static bool restartGame = false;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
@@ -201,35 +202,36 @@ namespace W09_Prove_cycle_game.Game.Scripting
                     segment.SetColor(Constants.WHITE);
                 }
             }
+            restartGame = true;
         }
 
-        public void HandleRestart(Cast cast)
-        {
-            isGameOver = false;
-            winnerIs1 = false;
-            tie = false;
+        // public void HandleRestart(Cast cast)
+        // {
+        //     isGameOver = false;
+        //     winnerIs1 = false;
+        //     tie = false;
 
-            Snake snake1 = (Snake)cast.GetFirstActor("snake1");
-            Snake snake2 = (Snake)cast.GetFirstActor("snake2");
-            Actor message = (Actor)cast.GetFirstActor("messages");
+        //     Snake snake1 = (Snake)cast.GetFirstActor("snake1");
+        //     Snake snake2 = (Snake)cast.GetFirstActor("snake2");
+        //     Actor message = (Actor)cast.GetFirstActor("messages");
 
-            // Thread.Sleep(2000);
-            cast.RemoveActor("snake1", snake1);
-            cast.RemoveActor("snake2", snake2);
-            cast.RemoveActor("messages", message);
+        //     // Thread.Sleep(2000);
+        //     cast.RemoveActor("snake1", snake1);
+        //     cast.RemoveActor("snake2", snake2);
+        //     cast.RemoveActor("messages", message);
 
-            snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE1_INT_VEL);
-            snake2 = new Snake(Constants.SNAKE2_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE2_INT_VEL);
+        //     snake1 = new Snake(Constants.SNAKE1_INT_POS, Constants.HEAVY_ORANGE, Constants.SNAKE1_INT_VEL);
+        //     snake2 = new Snake(Constants.SNAKE2_INT_POS, Constants.LIGHT_BLUE, Constants.SNAKE2_INT_VEL);
 
-            Point vel = new Point(15, 0);
-            Actor head1 = snake1.GetHead();
-            head1.SetVelocity(vel);
+        //     Point vel = new Point(15, 0);
+        //     Actor head1 = snake1.GetHead();
+        //     head1.SetVelocity(vel);
 
-            cast.AddActor("snake1", snake1);
-            cast.AddActor("snake2", snake2);
+        //     cast.AddActor("snake1", snake1);
+        //     cast.AddActor("snake2", snake2);
 
-            Constants.direction1 = new Point(15, 0);
-            Constants.direction2 = new Point(-15, 0);
-        }
+        //     Constants.direction1 = new Point(15, 0);
+        //     Constants.direction2 = new Point(-15, 0);
+        // }
     }
 }

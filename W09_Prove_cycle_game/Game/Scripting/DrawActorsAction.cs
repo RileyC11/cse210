@@ -58,6 +58,7 @@ namespace W09_Prove_cycle_game.Game.Scripting
                 snake1.GrowTail(Constants.HEAVY_ORANGE, "snake1");
                 snake2.GrowTail(Constants.LIGHT_BLUE, "snake2");
             }
+            
             videoService.ClearBuffer();
             videoService.DrawActors(segments1);
             videoService.DrawActors(segments2);

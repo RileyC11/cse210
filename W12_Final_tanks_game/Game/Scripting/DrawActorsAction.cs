@@ -31,7 +31,6 @@ namespace W11_Prove_retry.Game.Scripting
             List<Actor> levelOne = cast.GetActors("levelOne");
             List<Actor> levelTwo = cast.GetActors("levelTwo");
             List<Actor> levelThree = cast.GetActors("levelThree");
-            // Actor enemy = (Actor)cast.GetFirstActor("enemy");
             Actor score1 = cast.GetFirstActor("score1");
             Actor score2 = cast.GetFirstActor("score2");
             Actor lives1 = cast.GetFirstActor("lives1");
@@ -45,11 +44,20 @@ namespace W11_Prove_retry.Game.Scripting
             videoService.DrawActor(tank2);
             videoService.DrawActor(bullet1);
             videoService.DrawActor(bullet2);
-            // videoService.DrawActor(enemy);
-            // videoService.DrawActors(enemies);
 
             // Add some if statements and create different walls to act like different levels
-            videoService.DrawActors(levelOne);
+            if (Constants.LEVEL == 1)
+            {
+                videoService.DrawActors(levelOne);
+            }
+            else if (Constants.LEVEL == 2)
+            {
+                videoService.DrawActors(levelTwo);
+            }
+            else if (Constants.LEVEL == 3)
+            {
+                videoService.DrawActors(levelThree);
+            }
             videoService.DrawActor(score1);
             videoService.DrawActor(score2);
             videoService.DrawActor(lives1);

@@ -75,6 +75,7 @@ namespace W11_Prove_retry.Game.Scripting
                 tank2.SetPosition(new Point(tank2X, tank2Y));
                 score1.AddPoints(100);
                 lives2.SubtractPoints(1);
+                Constants.LEVEL++;
             }
 
             if (Raylib.CheckCollisionRecs(tank1rec, bullet2rec))
@@ -88,6 +89,7 @@ namespace W11_Prove_retry.Game.Scripting
                 tank1.SetPosition(new Point(tank1X, tank1Y));
                 score2.AddPoints(100);
                 lives1.SubtractPoints(1);
+                Constants.LEVEL++;
             }
 
             score1.DisplayPoints();

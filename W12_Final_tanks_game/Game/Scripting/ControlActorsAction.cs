@@ -3,7 +3,7 @@ using W11_Prove_retry.Game.Services;
 using W11_Prove_retry.Game.Scripting;
 using System;
 
-
+// Want to create a constant for the level number and use that for which walls to load
 namespace W11_Prove_retry.Game.Scripting
 {
     /// <summary>
@@ -15,8 +15,8 @@ namespace W11_Prove_retry.Game.Scripting
     public class ControlActorsAction : Action
     {
         private KeyboardService keyboardService;
-        public static Point velP1 = new Point(0,0);
-        public static Point velP2 = new Point(0,0);
+        // public static Point velP1 = new Point(0,0);
+        // public static Point velP2 = new Point(0,0);
         public static Point velB1 = new Point(0,0);
         public static Point velB2 = new Point(0,0);
 
@@ -31,8 +31,10 @@ namespace W11_Prove_retry.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            // Point velP1 = new Point(0,0);
-            // Point velP2 = new Point(0,0);
+            // Allows me to press the key and only move one space
+            Point velP1 = new Point(0,0);
+            Point velP2 = new Point(0,0);
+
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
             Actor tank2 = (Actor)cast.GetFirstActor("tank2");
             Actor bullet1 = (Actor)cast.GetFirstActor("bullet1");

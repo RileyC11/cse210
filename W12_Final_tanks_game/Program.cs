@@ -42,7 +42,7 @@ namespace W11_Prove_retry
             tank1.SetPosition(new Point(30,300));
             tank1.SetVelocity(new Point(0,0));
             tank1.SetText("#");
-            tank1.SetColor(Constants.WHITE);
+            tank1.SetColor(Constants.HEAVY_ORANGE);
             tank1.SetFontSize(Constants.FONT_SIZE);
 
             // Create tank2
@@ -50,7 +50,7 @@ namespace W11_Prove_retry
             tank2.SetPosition(new Point(870,300));
             tank2.SetVelocity(new Point(0,0));
             tank2.SetText("#");
-            tank2.SetColor(Constants.WHITE);
+            tank2.SetColor(Constants.LIGHT_BLUE);
             tank2.SetFontSize(Constants.FONT_SIZE);
 
             // Create player 1 bullet

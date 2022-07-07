@@ -18,6 +18,8 @@ namespace W11_Prove_retry.Game.Scripting
     /// </summary>
     public class CollideWallAction : Action
     {
+        private int level = 1;
+        private string group = "";
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
         /// </summary>
@@ -28,6 +30,7 @@ namespace W11_Prove_retry.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
+            level = Constants.LEVEL;
             CollisionTop(cast);
             CollisionBottom(cast);
             CollisionLeft(cast);
@@ -41,7 +44,22 @@ namespace W11_Prove_retry.Game.Scripting
             Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
-            List<Actor> levelOne = cast.GetActors("levelOne");
+            
+            
+            if (this.level == 1)
+            {
+                group = Constants.LEVEL_ONE;
+            }
+            else if (this.level == 2)
+            {
+                group = Constants.LEVEL_TWO;
+            }
+            else if (this.level == 3)
+            {
+                group = Constants.LEVEL_THREE;
+            }
+
+            List<Actor> level = cast.GetActors(group);
 
             Point velB1 = bullet1.GetVelocity();
             int xVelB1 = velB1.GetX();
@@ -59,7 +77,7 @@ namespace W11_Prove_retry.Game.Scripting
             int bullet2X = bullet2Pos.GetX();
             int bullet2Y = bullet2Pos.GetY();
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -67,10 +85,9 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet1Y == wallY - Constants.CELL_SIZE && bullet1X == wallX)
                 {
-                    // 0 or 180 collision
-                    if (xVelB1 == 0 || yVelB1 == 0)
+                    // -90 collision
+                    if (xVelB1 == 0)
                     {
-                        xVelB1 = xVelB1 * -1;
                         yVelB1 = yVelB1 * -1;
                     }
 
@@ -94,7 +111,7 @@ namespace W11_Prove_retry.Game.Scripting
                 }
             }
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -102,10 +119,9 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet2Y == wallY - Constants.CELL_SIZE && bullet2X == wallX)
                 {
-                    // 0 or 180 collision
-                    if (xVelB2 == 0 || yVelB2 == 0)
+                    // -90 collision
+                    if (xVelB2 == 0)
                     {
-                        xVelB2 = xVelB2 * -1;
                         yVelB2 = yVelB2 * -1;
                     }
 
@@ -138,7 +154,21 @@ namespace W11_Prove_retry.Game.Scripting
             Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
-            List<Actor> levelOne = cast.GetActors("levelOne");
+            
+            if (this.level == 1)
+            {
+                group = Constants.LEVEL_ONE;
+            }
+            else if (this.level == 2)
+            {
+                group = Constants.LEVEL_TWO;
+            }
+            else if (this.level == 3)
+            {
+                group = Constants.LEVEL_THREE;
+            }
+
+            List<Actor> level = cast.GetActors(group);
 
             Point velB1 = bullet1.GetVelocity();
             int xVelB1 = velB1.GetX();
@@ -156,7 +186,7 @@ namespace W11_Prove_retry.Game.Scripting
             int bullet2X = bullet2Pos.GetX();
             int bullet2Y = bullet2Pos.GetY();
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -164,10 +194,9 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet1Y == wallY + Constants.CELL_SIZE && bullet1X == wallX)
                 {
-                    // 0 or 180 collision
-                    if (xVelB1 == 0 || yVelB1 == 0)
+                    // 90 collision
+                    if (xVelB1 == 0)
                     {
-                        xVelB1 = xVelB1 * -1;
                         yVelB1 = yVelB1 * -1;
                     }
 
@@ -191,7 +220,7 @@ namespace W11_Prove_retry.Game.Scripting
                 }
             }
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -199,10 +228,9 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet2Y == wallY + Constants.CELL_SIZE && bullet2X == wallX)
                 {
-                    // 0 or 180 collision
-                    if (xVelB2 == 0 || yVelB2 == 0)
+                    // 90 collision
+                    if (xVelB2 == 0)
                     {
-                        xVelB2 = xVelB2 * -1;
                         yVelB2 = yVelB2 * -1;
                     }
 
@@ -227,6 +255,7 @@ namespace W11_Prove_retry.Game.Scripting
             }
         }
 
+        // Bullet hits the left side of the wall
         public void CollisionLeft(Cast cast)
         {
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
@@ -235,7 +264,21 @@ namespace W11_Prove_retry.Game.Scripting
             Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
-            List<Actor> levelOne = cast.GetActors("levelOne");
+
+            if (this.level == 1)
+            {
+                group = Constants.LEVEL_ONE;
+            }
+            else if (this.level == 2)
+            {
+                group = Constants.LEVEL_TWO;
+            }
+            else if (this.level == 3)
+            {
+                group = Constants.LEVEL_THREE;
+            }
+
+            List<Actor> level = cast.GetActors(group);
 
             Point velB1 = bullet1.GetVelocity();
             int xVelB1 = velB1.GetX();
@@ -253,7 +296,7 @@ namespace W11_Prove_retry.Game.Scripting
             int bullet2X = bullet2Pos.GetX();
             int bullet2Y = bullet2Pos.GetY();
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -261,11 +304,10 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet1X == wallX - Constants.CELL_SIZE && bullet1Y == wallY)
                 {
-                    // 0 or 180 collision
-                    if (xVelB1 == 0 || yVelB1 == 0)
+                    // 0 collision
+                    if (yVelB1 == 0)
                     {
                         xVelB1 = xVelB1 * -1;
-                        yVelB1 = yVelB1 * -1;
                     }
 
                     // 45 collision
@@ -288,7 +330,7 @@ namespace W11_Prove_retry.Game.Scripting
                 }
             }
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -296,11 +338,10 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet2X == wallX - Constants.CELL_SIZE && bullet2Y == wallY)
                 {
-                    // 0 or 180 collision
-                    if (xVelB2 == 0 || yVelB2 == 0)
+                    // 0 collision
+                    if (yVelB2 == 0)
                     {
                         xVelB2 = xVelB2 * -1;
-                        yVelB2 = yVelB2 * -1;
                     }
 
                     // 45 collision
@@ -324,6 +365,7 @@ namespace W11_Prove_retry.Game.Scripting
             }
         }
 
+        //Bullet hits the right side of the wall
         public void CollisionRight(Cast cast)
         {
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
@@ -332,7 +374,21 @@ namespace W11_Prove_retry.Game.Scripting
             Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
-            List<Actor> levelOne = cast.GetActors("levelOne");
+            
+            if (this.level == 1)
+            {
+                group = Constants.LEVEL_ONE;
+            }
+            else if (this.level == 2)
+            {
+                group = Constants.LEVEL_TWO;
+            }
+            else if (this.level == 3)
+            {
+                group = Constants.LEVEL_THREE;
+            }
+
+            List<Actor> level = cast.GetActors(group);
 
             Point velB1 = bullet1.GetVelocity();
             int xVelB1 = velB1.GetX();
@@ -350,7 +406,7 @@ namespace W11_Prove_retry.Game.Scripting
             int bullet2X = bullet2Pos.GetX();
             int bullet2Y = bullet2Pos.GetY();
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -358,11 +414,10 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet1X == wallX + Constants.CELL_SIZE && bullet1Y == wallY)
                 {
-                    // 0 or 180 collision
-                    if (xVelB1 == 0 || yVelB1 == 0)
+                    // 180 collision
+                    if (yVelB1 == 0)
                     {
                         xVelB1 = xVelB1 * -1;
-                        yVelB1 = yVelB1 * -1;
                     }
 
                     // 45 collision
@@ -385,7 +440,7 @@ namespace W11_Prove_retry.Game.Scripting
                 }
             }
 
-            foreach (Actor wall in levelOne)
+            foreach (Actor wall in level)
             {
                 Point wallPos = wall.GetPosition();
                 int wallX = wallPos.GetX();
@@ -393,21 +448,20 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet2X == wallX + Constants.CELL_SIZE && bullet2Y == wallY)
                 {
-                    // 0 or 180 collision
-                    if (xVelB2 == 0 || yVelB2 == 0)
+                    // 180 collision
+                    if (yVelB2 == 0)
                     {
                         xVelB2 = xVelB2 * -1;
-                        yVelB2 = yVelB2 * -1;
                     }
 
-                    // 45 collision
+                    // -135 collision
                     else if ((xVelB2 == -15 && yVelB2 == 15))
                     {
                         xVelB2 = xVelB2 * -1;
                         bullet2.SetText("\\");
                     }
                     
-                    // -45 collision
+                    // 135 collision
                     else if (xVelB2 == -15 && yVelB2 == -15)
                     {
                         xVelB2 = xVelB2 * -1;

@@ -12,6 +12,12 @@ namespace W11_Prove_retry
     /// </summary>
     public class Constants
     {
+        public static int LEVEL = 1;
+        public static string LEVEL_ONE = "levelOne";
+        public static string LEVEL_TWO = "levelTwo";
+        public static string LEVEL_THREE = "levelThree";
+
+
         public static int COLUMNS = 40;
         public static int ROWS = 20;
         public static int CELL_SIZE = 15;

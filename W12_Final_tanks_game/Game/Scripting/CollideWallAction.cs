@@ -38,6 +38,7 @@ namespace W11_Prove_retry.Game.Scripting
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
             Actor tank2 = (Actor)cast.GetFirstActor("tank2");
             Actor bullet1 = (Actor)cast.GetFirstActor("bullet1");
+            Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
             List<Actor> levelOne = cast.GetActors("levelOne");
@@ -49,6 +50,14 @@ namespace W11_Prove_retry.Game.Scripting
             Point bullet1Pos = bullet1.GetPosition();
             int bullet1X = bullet1Pos.GetX();
             int bullet1Y = bullet1Pos.GetY();
+
+            Point velB2 = bullet2.GetVelocity();
+            int xVelB2 = velB2.GetX();
+            int yVelB2 = velB2.GetY();
+
+            Point bullet2Pos = bullet2.GetPosition();
+            int bullet2X = bullet2Pos.GetX();
+            int bullet2Y = bullet2Pos.GetY();
 
             foreach (Actor wall in levelOne)
             {
@@ -83,7 +92,42 @@ namespace W11_Prove_retry.Game.Scripting
                     bullet1.SetVelocity(velB1);
                     ControlActorsAction.velB1 = velB1;
                 }
-            }        
+            }
+
+            foreach (Actor wall in levelOne)
+            {
+                Point wallPos = wall.GetPosition();
+                int wallX = wallPos.GetX();
+                int wallY = wallPos.GetY();
+
+                if (bullet2Y == wallY - Constants.CELL_SIZE && bullet2X == wallX)
+                {
+                    // 0 or 180 collision
+                    if (xVelB2 == 0 || yVelB2 == 0)
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        yVelB2 = yVelB2 * -1;
+                    }
+
+                    // 45 collision
+                    else if ((xVelB2 == -15 && yVelB2 == 15))
+                    {
+                        yVelB2 = yVelB2 * -1;
+                        bullet2.SetText("\\");
+                    }
+                    
+                    // 135 collision
+                    else if (xVelB2 == 15 && yVelB2 == 15)
+                    {
+                        yVelB2 = yVelB2 * -1;
+                        bullet2.SetText("/");
+                    }
+                    
+                    velB2 = new Point(xVelB2, yVelB2);
+                    bullet2.SetVelocity(velB2);
+                    ControlActorsAction.velB2 = velB2;
+                }
+            }  
         }
 
         public void CollisionBottom(Cast cast)
@@ -91,6 +135,7 @@ namespace W11_Prove_retry.Game.Scripting
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
             Actor tank2 = (Actor)cast.GetFirstActor("tank2");
             Actor bullet1 = (Actor)cast.GetFirstActor("bullet1");
+            Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
             List<Actor> levelOne = cast.GetActors("levelOne");
@@ -102,6 +147,14 @@ namespace W11_Prove_retry.Game.Scripting
             Point bullet1Pos = bullet1.GetPosition();
             int bullet1X = bullet1Pos.GetX();
             int bullet1Y = bullet1Pos.GetY();
+
+            Point velB2 = bullet2.GetVelocity();
+            int xVelB2 = velB2.GetX();
+            int yVelB2 = velB2.GetY();
+
+            Point bullet2Pos = bullet2.GetPosition();
+            int bullet2X = bullet2Pos.GetX();
+            int bullet2Y = bullet2Pos.GetY();
 
             foreach (Actor wall in levelOne)
             {
@@ -137,6 +190,41 @@ namespace W11_Prove_retry.Game.Scripting
                     ControlActorsAction.velB1 = velB1;
                 }
             }
+
+            foreach (Actor wall in levelOne)
+            {
+                Point wallPos = wall.GetPosition();
+                int wallX = wallPos.GetX();
+                int wallY = wallPos.GetY();
+
+                if (bullet2Y == wallY + Constants.CELL_SIZE && bullet2X == wallX)
+                {
+                    // 0 or 180 collision
+                    if (xVelB2 == 0 || yVelB2 == 0)
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        yVelB2 = yVelB2 * -1;
+                    }
+
+                    // -45 collision
+                    else if ((xVelB2 == -15 && yVelB2 == -15))
+                    {
+                        yVelB2 = yVelB2 * -1;
+                        bullet2.SetText("/");
+                    }
+                    
+                    // -135 collision
+                    else if (xVelB2 == 15 && yVelB2 == -15)
+                    {
+                        yVelB2 = yVelB2 * -1;
+                        bullet2.SetText("\\");
+                    }
+                    
+                    velB2 = new Point(xVelB2, yVelB2);
+                    bullet2.SetVelocity(velB2);
+                    ControlActorsAction.velB2 = velB2;
+                }
+            }
         }
 
         public void CollisionLeft(Cast cast)
@@ -144,6 +232,7 @@ namespace W11_Prove_retry.Game.Scripting
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
             Actor tank2 = (Actor)cast.GetFirstActor("tank2");
             Actor bullet1 = (Actor)cast.GetFirstActor("bullet1");
+            Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
             List<Actor> levelOne = cast.GetActors("levelOne");
@@ -155,6 +244,14 @@ namespace W11_Prove_retry.Game.Scripting
             Point bullet1Pos = bullet1.GetPosition();
             int bullet1X = bullet1Pos.GetX();
             int bullet1Y = bullet1Pos.GetY();
+
+            Point velB2 = bullet2.GetVelocity();
+            int xVelB2 = velB2.GetX();
+            int yVelB2 = velB2.GetY();
+
+            Point bullet2Pos = bullet2.GetPosition();
+            int bullet2X = bullet2Pos.GetX();
+            int bullet2Y = bullet2Pos.GetY();
 
             foreach (Actor wall in levelOne)
             {
@@ -190,6 +287,41 @@ namespace W11_Prove_retry.Game.Scripting
                     ControlActorsAction.velB1 = velB1;
                 }
             }
+
+            foreach (Actor wall in levelOne)
+            {
+                Point wallPos = wall.GetPosition();
+                int wallX = wallPos.GetX();
+                int wallY = wallPos.GetY();
+
+                if (bullet2X == wallX - Constants.CELL_SIZE && bullet2Y == wallY)
+                {
+                    // 0 or 180 collision
+                    if (xVelB2 == 0 || yVelB2 == 0)
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        yVelB2 = yVelB2 * -1;
+                    }
+
+                    // 45 collision
+                    else if ((xVelB2 == 15 && yVelB2 == -15))
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        bullet2.SetText("\\");
+                    }
+                    
+                    // -45 collision
+                    else if (xVelB2 == 15 && yVelB2 == 15)
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        bullet2.SetText("/");
+                    }
+                    
+                    velB2 = new Point(xVelB2, yVelB2);
+                    bullet2.SetVelocity(velB2);
+                    ControlActorsAction.velB2 = velB2;
+                }
+            }
         }
 
         public void CollisionRight(Cast cast)
@@ -197,6 +329,7 @@ namespace W11_Prove_retry.Game.Scripting
             Actor tank1 = (Actor)cast.GetFirstActor("tank1");
             Actor tank2 = (Actor)cast.GetFirstActor("tank2");
             Actor bullet1 = (Actor)cast.GetFirstActor("bullet1");
+            Actor bullet2 = (Actor)cast.GetFirstActor("bullet2");
             Score score1 = (Score)cast.GetFirstActor("score1");
             Score score2 = (Score)cast.GetFirstActor("score2");
             List<Actor> levelOne = cast.GetActors("levelOne");
@@ -208,6 +341,14 @@ namespace W11_Prove_retry.Game.Scripting
             Point bullet1Pos = bullet1.GetPosition();
             int bullet1X = bullet1Pos.GetX();
             int bullet1Y = bullet1Pos.GetY();
+
+            Point velB2 = bullet2.GetVelocity();
+            int xVelB2 = velB2.GetX();
+            int yVelB2 = velB2.GetY();
+
+            Point bullet2Pos = bullet2.GetPosition();
+            int bullet2X = bullet2Pos.GetX();
+            int bullet2Y = bullet2Pos.GetY();
 
             foreach (Actor wall in levelOne)
             {
@@ -241,6 +382,41 @@ namespace W11_Prove_retry.Game.Scripting
                     velB1 = new Point(xVelB1, yVelB1);
                     bullet1.SetVelocity(velB1);
                     ControlActorsAction.velB1 = velB1;
+                }
+            }
+
+            foreach (Actor wall in levelOne)
+            {
+                Point wallPos = wall.GetPosition();
+                int wallX = wallPos.GetX();
+                int wallY = wallPos.GetY();
+
+                if (bullet2X == wallX + Constants.CELL_SIZE && bullet2Y == wallY)
+                {
+                    // 0 or 180 collision
+                    if (xVelB2 == 0 || yVelB2 == 0)
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        yVelB2 = yVelB2 * -1;
+                    }
+
+                    // 45 collision
+                    else if ((xVelB2 == -15 && yVelB2 == 15))
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        bullet2.SetText("\\");
+                    }
+                    
+                    // -45 collision
+                    else if (xVelB2 == -15 && yVelB2 == -15)
+                    {
+                        xVelB2 = xVelB2 * -1;
+                        bullet2.SetText("/");
+                    }
+                    
+                    velB2 = new Point(xVelB2, yVelB2);
+                    bullet2.SetVelocity(velB2);
+                    ControlActorsAction.velB2 = velB2;
                 }
             }
         }

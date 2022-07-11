@@ -1,8 +1,8 @@
 using System;
 using Microsoft.VisualBasic;
-using W11_Prove_retry.Game.Casting;
+using W12_Final_tanks_game.Game.Casting;
 
-namespace W11_Prove_retry
+namespace W12_Final_tanks_game
 {
     /// <summary>
     /// <para>A tasty item that snakes like to eat.</para>
@@ -12,47 +12,30 @@ namespace W11_Prove_retry
     /// </summary>
     public class Constants
     {
+        // GAME
+        public static string GAME_NAME = "Tanks";
+        public static int FRAME_RATE = 15;
+        public static bool BOUNCED = false;
+
         public static int LEVEL = 1;
         public static string LEVEL_ONE = "levelOne";
         public static string LEVEL_TWO = "levelTwo";
         public static string LEVEL_THREE = "levelThree";
 
+        // STARTING POSITIONS
+        public static Point P1_L1_START_POS = new Point(30, 300);
+        public static Point P1_L2_START_POS = new Point(60, 450);
+        public static Point P1_L3_START_POS = new Point(180, 300);
+        public static Point P2_L1_START_POS = new Point(870, 300);
+        public static Point P2_L2_START_POS = new Point(840, 150);
+        public static Point P2_L3_START_POS = new Point(720, 300);
 
+        // SCREEN
         public static int COLUMNS = 40;
         public static int ROWS = 20;
         public static int CELL_SIZE = 15;
         public static int MAX_X = 900;
         public static int MAX_Y = 600;
-
-
-        public static string GAME_NAME = "Tanks";
-        public static int FRAME_RATE = 15;
-
-        // SCREEN
-        public static int SCREEN_WIDTH = 1040;
-        public static int SCREEN_HEIGHT = 680;
-        public static int CENTER_X = SCREEN_WIDTH / 2;
-        public static int CENTER_Y = SCREEN_HEIGHT / 2;
-
-        // FIELD
-        public static int FIELD_TOP = 60;
-        public static int FIELD_BOTTOM = SCREEN_HEIGHT;
-        public static int FIELD_LEFT = 0;
-        public static int FIELD_RIGHT = SCREEN_WIDTH;
-
-        // FONT
-        public static string FONT_FILE = "Assets/Fonts/zorque.otf";
-        public static int FONT_SIZE = 15;
-
-        // SOUND
-        public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
-        public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
-        public static string OVER_SOUND = "Assets/Sounds/over.wav";
-
-        // TEXT
-        public static int ALIGN_LEFT = 0;
-        public static int ALIGN_CENTER = 1;
-        public static int ALIGN_RIGHT = 2;
 
 
         // COLORS
@@ -61,6 +44,33 @@ namespace W11_Prove_retry
         public static Color PURPLE = new Color(255, 0, 255);
         public static Color LIGHT_BLUE = new Color(111, 195, 223);
         public static Color HEAVY_ORANGE =  new Color(223, 116, 12);
+
+        // SCREEN
+        public static int SCREEN_WIDTH = 1040;
+        public static int SCREEN_HEIGHT = 680;
+        public static int CENTER_X = SCREEN_WIDTH / 2;
+        public static int CENTER_Y = SCREEN_HEIGHT / 2;
+
+        // FIELD
+        public static int FIELD_TOP = 30;
+        public static int FIELD_BOTTOM = SCREEN_HEIGHT;
+        public static int FIELD_LEFT = 0;
+        public static int FIELD_RIGHT = SCREEN_WIDTH;
+
+        // FONT
+        public static string FONT_FILE = "Font/ARIAL.TTF";
+        public static int FONT_SIZE = 15;
+
+        // SOUND
+        // public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
+        // public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
+        // public static string OVER_SOUND = "Assets/Sounds/over.wav";
+
+        // TEXT
+        public static int ALIGN_LEFT = 0;
+        public static int ALIGN_CENTER = 1;
+        public static int ALIGN_RIGHT = 2;
+
 
         // KEYS
         public static string LEFT = "left";
@@ -100,7 +110,7 @@ namespace W11_Prove_retry
         // STATS
         public static string STATS_GROUP = "stats";
         public static int DEFAULT_LIVES = 3;
-        public static int MAXIMUM_LIVES = 5;
+        // public static int MAXIMUM_LIVES = 5;
 
         // HUD
         public static int HUD_MARGIN = 15;
@@ -111,84 +121,22 @@ namespace W11_Prove_retry
         public static string LIVES_FORMAT = "LIVES: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
 
-        // BALL
-        public static string BALL_GROUP = "balls";
-        public static string BALL_IMAGE = "Assets/Images/000.png";
-        public static int BALL_WIDTH = 28;
-        public static int BALL_HEIGHT = 28;
-        public static int BALL_VELOCITY = 6;
+        // BULLET
+        public static string BULLET_GROUP = "bullet";
+        public static int BULLET_WIDTH = 15;
+        public static int BULLET_HEIGHT = 15;
+        public static int BULLET_VELOCITY = 0;
 
-        // RACKET
-        public static string RACKET_GROUP = "rackets";
-        
-        // public static List<string> RACKET_IMAGES
-        //     = new List<string>() {
-        //         "Assets/Images/100.png",
-        //         "Assets/Images/101.png",
-        //         "Assets/Images/102.png"
-        //     };
+        // TANK
+        public static string TANK_GROUP = "tank";
+        public static int TANK_WIDTH = 106;
+        public static int TANK_HEIGHT = 28;
+        public static int TANK_VELOCITY = 0;
 
-        public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
-
-        // BRICK
-        public static string BRICK_GROUP = "bricks";
-        
-        // public static Dictionary<string, List<string>> BRICK_IMAGES
-        //     = new Dictionary<string, List<string>>() {
-        //         { "b", new List<string>() {
-        //             "Assets/Images/010.png",
-        //             "Assets/Images/011.png",
-        //             "Assets/Images/012.png",
-        //             "Assets/Images/013.png",
-        //             "Assets/Images/014.png",
-        //             "Assets/Images/015.png",
-        //             "Assets/Images/016.png",
-        //             "Assets/Images/017.png",
-        //             "Assets/Images/018.png"
-        //         } },
-        //         { "g", new List<string>() {
-        //             "Assets/Images/020.png",
-        //             "Assets/Images/021.png",
-        //             "Assets/Images/022.png",
-        //             "Assets/Images/023.png",
-        //             "Assets/Images/024.png",
-        //             "Assets/Images/025.png",
-        //             "Assets/Images/026.png",
-        //             "Assets/Images/027.png",
-        //             "Assets/Images/028.png"
-        //         } },
-        //         { "p", new List<string>() {
-        //             "Assets/Images/030.png",
-        //             "Assets/Images/031.png",
-        //             "Assets/Images/032.png",
-        //             "Assets/Images/033.png",
-        //             "Assets/Images/034.png",
-        //             "Assets/Images/035.png",
-        //             "Assets/Images/036.png",
-        //             "Assets/Images/037.png",
-        //             "Assets/Images/038.png"
-        //         } },
-        //         { "y", new List<string>() {
-        //             "Assets/Images/040.png",
-        //             "Assets/Images/041.png",
-        //             "Assets/Images/042.png",
-        //             "Assets/Images/043.png",
-        //             "Assets/Images/044.png",
-        //             "Assets/Images/045.png",
-        //             "Assets/Images/046.png",
-        //             "Assets/Images/047.png",
-        //             "Assets/Images/048.png"
-        //         } }
-        // };
-
-        // public static int BRICK_WIDTH = 80;
-        // public static int BRICK_HEIGHT = 28;
-        // public static double BRICK_DELAY = 0.5;
-        // public static int BRICK_RATE = 4;
-        // public static int BRICK_POINTS = 50;
+        // WALL
+        public static string WALL_GROUP = "wall";
+        public static int WALL_WIDTH = 15;
+        public static int WALL_HEIGHT = 15;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

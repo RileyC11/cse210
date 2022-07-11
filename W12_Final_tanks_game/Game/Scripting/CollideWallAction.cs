@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
-using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Services;
+using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Services;
 using Raylib_cs;
 
 
-namespace W11_Prove_retry.Game.Scripting
+namespace W12_Final_tanks_game.Game.Scripting
 {
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
@@ -20,11 +20,13 @@ namespace W11_Prove_retry.Game.Scripting
     {
         private int level = 1;
         private string group = "";
+        public static bool bounced = false;
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
         /// </summary>
         public CollideWallAction()
         {
+            bounced = Constants.BOUNCED;
         }
 
         /// <inheritdoc/>
@@ -85,6 +87,14 @@ namespace W11_Prove_retry.Game.Scripting
 
                 if (bullet1Y == wallY - Constants.CELL_SIZE && bullet1X == wallX)
                 {
+                    // if (Constants.BOUNCED)
+                    // {
+                    //     bullet1.SetPosition(new Point(0,0));
+                    //     bullet1.SetVelocity(new Point(0,0));
+                    //     bullet1.SetText("");
+                    //     ControlActorsAction.velB1 = new Point(0,0);
+                    //     Constants.BOUNCED = false;
+                    // }
                     // -90 collision
                     if (xVelB1 == 0)
                     {
@@ -108,6 +118,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB1 = new Point(xVelB1, yVelB1);
                     bullet1.SetVelocity(velB1);
                     ControlActorsAction.velB1 = velB1;
+                    // Constants.BOUNCED = true;
                 }
             }
 
@@ -142,6 +153,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB2 = new Point(xVelB2, yVelB2);
                     bullet2.SetVelocity(velB2);
                     ControlActorsAction.velB2 = velB2;
+                    // Constants.BOUNCED = true;
                 }
             }  
         }
@@ -217,6 +229,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB1 = new Point(xVelB1, yVelB1);
                     bullet1.SetVelocity(velB1);
                     ControlActorsAction.velB1 = velB1;
+                    // Constants.BOUNCED = true;
                 }
             }
 
@@ -251,6 +264,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB2 = new Point(xVelB2, yVelB2);
                     bullet2.SetVelocity(velB2);
                     ControlActorsAction.velB2 = velB2;
+                    // Constants.BOUNCED = true;
                 }
             }
         }
@@ -327,6 +341,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB1 = new Point(xVelB1, yVelB1);
                     bullet1.SetVelocity(velB1);
                     ControlActorsAction.velB1 = velB1;
+                    // Constants.BOUNCED = true;
                 }
             }
 
@@ -361,6 +376,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB2 = new Point(xVelB2, yVelB2);
                     bullet2.SetVelocity(velB2);
                     ControlActorsAction.velB2 = velB2;
+                    // Constants.BOUNCED = true;
                 }
             }
         }
@@ -437,6 +453,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB1 = new Point(xVelB1, yVelB1);
                     bullet1.SetVelocity(velB1);
                     ControlActorsAction.velB1 = velB1;
+                    // Constants.BOUNCED = true;
                 }
             }
 
@@ -471,6 +488,7 @@ namespace W11_Prove_retry.Game.Scripting
                     velB2 = new Point(xVelB2, yVelB2);
                     bullet2.SetVelocity(velB2);
                     ControlActorsAction.velB2 = velB2;
+                    // Constants.BOUNCED = true;
                 }
             }
         }

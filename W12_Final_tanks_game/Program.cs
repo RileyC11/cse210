@@ -1,11 +1,11 @@
-﻿using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Directing;
-using W11_Prove_retry.Game.Scripting;
-using W11_Prove_retry.Game.Services;
-using W11_Prove_retry;
+﻿using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Directing;
+using W12_Final_tanks_game.Game.Scripting;
+using W12_Final_tanks_game.Game.Services;
+using W12_Final_tanks_game;
 
 
-namespace W11_Prove_retry
+namespace W12_Final_tanks_game
 {
     /// <summary>
     /// The program's entry point.
@@ -86,7 +86,7 @@ namespace W11_Prove_retry
             MoveActorsAction moveActorsAction = new MoveActorsAction();
             HandleCollisionsAction handleCollisionsAction = new HandleCollisionsAction();
             CollideBorderAction collideBorderAction = new CollideBorderAction();
-            CollideTankAction collideTankAction = new CollideTankAction();
+            CollideTankAction collideTankAction = new CollideTankAction(DateTime.Now);
             CollideWallAction collideWallAction = new CollideWallAction();
             DrawActorsAction drawActorsAction = new DrawActorsAction(videoService);
            

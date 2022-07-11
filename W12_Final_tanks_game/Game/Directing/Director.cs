@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Scripting;
-using W11_Prove_retry.Game.Services;
+using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Scripting;
+using W12_Final_tanks_game.Game.Services;
 
 
-namespace W11_Prove_retry.Game.Directing
+namespace W12_Final_tanks_game.Game.Directing
 {
     /// <summary>
     /// <para>A person who directs the game.</para>

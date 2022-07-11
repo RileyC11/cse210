@@ -1,10 +1,10 @@
-using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Services;
-using W11_Prove_retry.Game.Scripting;
+using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Services;
+using W12_Final_tanks_game.Game.Scripting;
 using System;
 
 // Want to create a constant for the level number and use that for which walls to load
-namespace W11_Prove_retry.Game.Scripting
+namespace W12_Final_tanks_game.Game.Scripting
 {
     /// <summary>
     /// <para>An input action that controls the snake.</para>
@@ -81,7 +81,7 @@ namespace W11_Prove_retry.Game.Scripting
             // up player 1 bullet
             if (keyboardService.IsKeyDown("i"))
             {
-                bullet1.SetText("|");
+                bullet1.SetText("\x2191");
                 bullet1.SetPosition(pos1);
                 velB1 = new Point(0,-Constants.CELL_SIZE);
             }
@@ -96,9 +96,9 @@ namespace W11_Prove_retry.Game.Scripting
             if (keyboardService.IsKeyDown("i") && keyboardService.IsKeyDown("l"))
             {
                 // string ball = "\x21D4";
-                string ball = "↑";
-                bullet1.SetText(ball);
-                // bullet1.SetText("/");
+                // string ball = "↑";
+                // bullet1.SetText(ball);
+                bullet1.SetText("/");
                 bullet1.SetPosition(pos1);
                 velB1 = new Point(Constants.CELL_SIZE, -Constants.CELL_SIZE);
             }

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
-using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Services;
+using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Services;
 using Raylib_cs;
 
 
-namespace W11_Prove_retry.Game.Scripting
+namespace W12_Final_tanks_game.Game.Scripting
 {
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
@@ -18,18 +18,16 @@ namespace W11_Prove_retry.Game.Scripting
     /// </summary>
     public class CollideTankAction : Action
     {
-        public static bool isGameOver = false;
-        public static bool winnerIs1 = false;
-        public static bool tie = false;
-        public static bool restartGame = false;
-        public bool collision = false;
-        public int bounces = 0;
+        private double delay = 5;
+        private DateTime start;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
         /// </summary>
-        public CollideTankAction()
+        public CollideTankAction(DateTime start)
         {
+            // this.delay = 5;
+            this.start = start;
         }
 
         /// <inheritdoc/>
@@ -63,33 +61,59 @@ namespace W11_Prove_retry.Game.Scripting
             int bullet2X = bullet2Pos.GetX();
             int bullet2Y = bullet2Pos.GetY();
             Rectangle bullet2rec = new Rectangle(bullet2X, bullet2Y, 15, 15);
-    
+
+            DateTime currentTime = DateTime.Now;
+            TimeSpan elapsedTime = currentTime.Subtract(start);
+
             if (Raylib.CheckCollisionRecs(tank2rec, bullet1rec))
             {
-                bullet1.SetPosition(new Point(0,0));
+                bullet1.SetText("");
+                // bullet1.SetPosition(new Point(0,0));
                 ControlActorsAction.velB1 = new Point(0,0);
-                bullet1.SetVelocity(new Point(0,0));
-                Random random = new Random();
-                tank2X = random.Next(0, 60) * 15;
-                tank2Y = random.Next(0, 20) * 15;
-                tank2.SetPosition(new Point(tank2X, tank2Y));
-                score1.AddPoints(100);
-                lives2.SubtractPoints(1);
+                // bullet1.SetVelocity(new Point(0,0));
+                // if (elapsedTime.Seconds > delay)
+                // {
+                    bullet1.SetPosition(new Point(0,0));
+                    score1.AddPoints(100);
+                    lives2.SubtractPoints(1);
+                    
+                // }
                 Constants.LEVEL++;
+
+                if (Constants.LEVEL == 2)
+                {
+                    tank1.SetPosition(Constants.P1_L2_START_POS);
+                    tank2.SetPosition(Constants.P2_L2_START_POS);
+                }
+                else if (Constants.LEVEL == 3)
+                {
+                    tank1.SetPosition(Constants.P1_L3_START_POS);
+                    tank2.SetPosition(Constants.P2_L3_START_POS);
+                }
+                
             }
 
             if (Raylib.CheckCollisionRecs(tank1rec, bullet2rec))
             {
+                bullet2.SetText("");
                 bullet2.SetPosition(new Point(0,0));
                 ControlActorsAction.velB2 = new Point(0,0);
-                bullet2.SetVelocity(new Point(0,0));
-                Random random = new Random();
-                tank1X = random.Next(0, 60) * 15;
-                tank1Y = random.Next(0, 20) * 15;
-                tank1.SetPosition(new Point(tank1X, tank1Y));
                 score2.AddPoints(100);
                 lives1.SubtractPoints(1);
+                
                 Constants.LEVEL++;
+                
+                if (Constants.LEVEL == 2)
+                {
+                    tank1.SetPosition(Constants.P1_L2_START_POS);
+                    tank2.SetPosition(Constants.P2_L2_START_POS);
+                }
+                if (Constants.LEVEL == 3)
+                {
+                    tank1.SetPosition(Constants.P1_L3_START_POS);
+                    tank2.SetPosition(Constants.P2_L3_START_POS);
+                }
+                
             }
 
             score1.DisplayPoints();

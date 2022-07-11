@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
-using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Services;
+using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Services;
 using Raylib_cs;
 
 
-namespace W11_Prove_retry.Game.Scripting
+namespace W12_Final_tanks_game.Game.Scripting
 {
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
@@ -18,11 +18,14 @@ namespace W11_Prove_retry.Game.Scripting
     /// </summary>
     public class CollideBorderAction : Action
     {
+        public static bool bounced = false; 
+
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
         /// </summary>
         public CollideBorderAction()
         {
+            // bounced = Constants.BOUNCED;
         }
 
         /// <inheritdoc/>
@@ -83,6 +86,7 @@ namespace W11_Prove_retry.Game.Scripting
                 velB1 = new Point(xVelB1, yVelB1);
                 bullet1.SetVelocity(velB1);
                 ControlActorsAction.velB1 = velB1;
+                // Constants.BOUNCED = true;
             }
 
             if (bullet2Y == 0)
@@ -110,6 +114,7 @@ namespace W11_Prove_retry.Game.Scripting
                 velB2 = new Point(xVelB2, yVelB2);
                 bullet2.SetVelocity(velB2);
                 ControlActorsAction.velB2 = velB2;
+                // Constants.BOUNCED = true;
             }        
         }
 

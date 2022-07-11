@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using W11_Prove_retry.Game.Casting;
-using W11_Prove_retry.Game.Services;
+using W12_Final_tanks_game.Game.Casting;
+using W12_Final_tanks_game.Game.Services;
 
 
-namespace W11_Prove_retry.Game.Scripting
+namespace W12_Final_tanks_game.Game.Scripting
 {
     /// <summary>
     /// <para>An output action that draws all the actors.</para>
@@ -40,15 +40,12 @@ namespace W11_Prove_retry.Game.Scripting
             List<Actor> messages = cast.GetActors("messages");
           
             videoService.ClearBuffer();
-            videoService.DrawActor(tank1);
-            videoService.DrawActor(tank2);
-            videoService.DrawActor(bullet1);
-            videoService.DrawActor(bullet2);
 
             // Add some if statements and create different walls to act like different levels
             if (Constants.LEVEL == 1)
             {
                 videoService.DrawActors(levelOne);
+
             }
             else if (Constants.LEVEL == 2)
             {
@@ -58,6 +55,15 @@ namespace W11_Prove_retry.Game.Scripting
             {
                 videoService.DrawActors(levelThree);
             }
+            else if (Constants.LEVEL > 3)
+            {
+                videoService.CloseWindow();
+            }
+
+            videoService.DrawActor(tank1);
+            videoService.DrawActor(tank2);
+            videoService.DrawActor(bullet1);
+            videoService.DrawActor(bullet2);
             videoService.DrawActor(score1);
             videoService.DrawActor(score2);
             videoService.DrawActor(lives1);

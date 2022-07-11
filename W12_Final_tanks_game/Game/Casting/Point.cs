@@ -1,4 +1,4 @@
-namespace W11_Prove_retry.Game.Casting
+namespace W12_Final_tanks_game.Game.Casting
 {
     /// <summary>
     /// <para>A distance from a relative origin (0, 0).</para>

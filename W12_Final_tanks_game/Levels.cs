@@ -1,8 +1,8 @@
 using System;
 using Microsoft.VisualBasic;
-using W11_Prove_retry.Game.Casting;
+using W12_Final_tanks_game.Game.Casting;
 
-namespace W11_Prove_retry
+namespace W12_Final_tanks_game
 {
     /// <summary>
     /// <para>A tasty item that snakes like to eat.</para>
@@ -24,7 +24,7 @@ namespace W11_Prove_retry
             for (int i = 0; i < 8; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(285, 120 + i*15));
+                wall.SetPosition(new Point(285, 120 + i*Constants.CELL_SIZE));
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelOne", wall);
@@ -33,7 +33,7 @@ namespace W11_Prove_retry
             for (int i = 0; i < 8; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(285, 360 + i*15));
+                wall.SetPosition(new Point(285, 360 + i*Constants.CELL_SIZE));
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelOne", wall);
@@ -42,7 +42,7 @@ namespace W11_Prove_retry
             for (int i = 0; i < 28; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(600, 90 + i*15));
+                wall.SetPosition(new Point(600, 90 + i*Constants.CELL_SIZE));
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelOne", wall);
@@ -51,19 +51,33 @@ namespace W11_Prove_retry
 
         public void LevelTwo(Cast cast)
         {
-            for (int i = 0; i < 12; i++)
+            // Top blocks
+            for (int i = 0; i < 30; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(180 + i*15, 180));
+                Point pos = new Point(180 + i*Constants.CELL_SIZE, 135);
+                wall.SetPosition(pos);
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelTwo", wall);
             }
 
-            for (int i = 0; i < 12; i++)
+            // Middle blocks
+            for (int i = 0; i < 9; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(225 + i*15, 420));
+                Point pos = new Point(450, 240 + i*Constants.CELL_SIZE);
+                wall.SetPosition(pos);
+                wall.SetText("[ ]");
+                wall.SetColor(Constants.HEAVY_ORANGE);
+                cast.AddActor("levelTwo", wall);
+            }
+
+            // Bottom blocks
+            for (int i = 0; i < 30; i++)
+            {
+                Actor wall = new Actor();
+                wall.SetPosition(new Point(270 + i*Constants.CELL_SIZE, 465));
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelTwo", wall);
@@ -72,28 +86,34 @@ namespace W11_Prove_retry
 
         public void LevelThree(Cast cast)
         {
-            for (int i = 0; i < 9; i++)
+            // Top horizontal blocks
+            for (int i = 0; i < 16; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(180 + i*15, 180));
+                Point pos = new Point(225 + i*Constants.CELL_SIZE, 180);
+                wall.SetPosition(pos);
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelThree", wall);
             }
 
-            for (int i = 0; i < 6; i++)
+            // Middle vertical blocks
+            for (int i = 0; i < 12; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(330, 195 + i*15));
+                Point pos = new Point(450, 195 + i*Constants.CELL_SIZE);
+                wall.SetPosition(pos);
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelThree", wall);
             }
 
-            for (int i = 0; i < 9; i++)
+            // Bottom horizontal blocks
+            for (int i = 0; i < 15; i++)
             {
                 Actor wall = new Actor();
-                wall.SetPosition(new Point(330 + i*15, 210));
+                Point pos = new Point(450 + i*Constants.CELL_SIZE, 375);
+                wall.SetPosition(pos);
                 wall.SetText("[ ]");
                 wall.SetColor(Constants.HEAVY_ORANGE);
                 cast.AddActor("levelThree", wall);

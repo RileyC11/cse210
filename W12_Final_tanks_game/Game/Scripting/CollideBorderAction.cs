@@ -19,6 +19,7 @@ namespace W12_Final_tanks_game.Game.Scripting
     public class CollideBorderAction : Action
     {
         public static bool bounced = false; 
+        public static int bounces = 0;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
@@ -26,6 +27,7 @@ namespace W12_Final_tanks_game.Game.Scripting
         public CollideBorderAction()
         {
             // bounced = Constants.BOUNCED;
+            bounces = Constants.BOUNCES;
         }
 
         /// <inheritdoc/>
@@ -226,6 +228,11 @@ namespace W12_Final_tanks_game.Game.Scripting
 
             if (bullet1X == 0)
             {
+                if (Constants.BOUNCES == 2)
+                {
+                    bullet1.SetText("*");
+                    ControlActorsAction.velB1 = new Point(0,0);
+                }
                 // 0 or 180 collision
                 if (yVelB1 == 0)
                 {
@@ -249,6 +256,7 @@ namespace W12_Final_tanks_game.Game.Scripting
                 velB1 = new Point(xVelB1, yVelB1);
                 bullet1.SetVelocity(velB1);
                 ControlActorsAction.velB1 = velB1;
+                Constants.BOUNCES++;
             }
 
             if (bullet2X == 0)
@@ -276,6 +284,7 @@ namespace W12_Final_tanks_game.Game.Scripting
                 velB2 = new Point(xVelB2, yVelB2);
                 bullet2.SetVelocity(velB2);
                 ControlActorsAction.velB2 = velB2;
+                Constants.BOUNCES++;
             }
             
         }

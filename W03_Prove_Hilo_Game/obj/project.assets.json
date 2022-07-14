@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03 Prove Hilo.csproj",
-      "projectName": "W03 Prove Hilo",
-      "projectPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03 Prove Hilo.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03_Prove_Hilo.csproj",
+      "projectName": "W03_Prove_Hilo",
+      "projectPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\W03_Prove_Hilo.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\W03_Prove_Hilo_Game\\obj\\",
       "projectStyle": "PackageReference",

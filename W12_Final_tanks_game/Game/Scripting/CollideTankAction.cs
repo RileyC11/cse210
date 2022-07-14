@@ -62,8 +62,8 @@ namespace W12_Final_tanks_game.Game.Scripting
             int bullet2Y = bullet2Pos.GetY();
             Rectangle bullet2rec = new Rectangle(bullet2X, bullet2Y, 15, 15);
 
-            DateTime currentTime = DateTime.Now;
-            TimeSpan elapsedTime = currentTime.Subtract(start);
+            // DateTime currentTime = DateTime.Now;
+            // TimeSpan elapsedTime = currentTime.Subtract(start);
 
             if (Raylib.CheckCollisionRecs(tank2rec, bullet1rec))
             {

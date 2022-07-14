@@ -5,22 +5,19 @@ namespace W03_Prove_Hilo_Game.Game
 {
     public class Director
     {
-        List<Card> cards = new List<Card>();
         bool isPlaying = true;
         int score = 0;
         int totalScore = 300;
         int playCount = 0;
         string guess = "";
         string playAgain = "";
-        int cardOne = 0;
-        int cardTwo = 0;
 
         public Director()
         {
             for (int i = 0; i < 2; i++)
             {
                 Card card = new Card();
-                cards.Add(card);
+                card.Draw();
             }
         }
 
@@ -28,7 +25,7 @@ namespace W03_Prove_Hilo_Game.Game
         {
             while (isPlaying)
             {
-                MakeCards();
+                MakeCard();
                 DisplayCard();
                 GetGuess();
                 DisplayCard();
@@ -39,17 +36,21 @@ namespace W03_Prove_Hilo_Game.Game
             }
         }
         
-        public void MakeCards()
+        public void MakeCard()
         {
-            foreach (Card card in cards)
-                {
-                    card.Draw();
-                }
-            cardOne = cards[0].value;
-            cardTwo = cards[1].value;
+            if (playAgain == "y")
+            {
+                Card card = new Card();
+                card.Draw();
+            }
         }
         public void DisplayCard()
         {
+            Card card = new Card();
+            List<int> cardsList = card.GetCards();
+            int cardOne = card.CardOne();
+            int cardTwo = card.CardTwo();
+
             if (!isPlaying)
             {
                 return;
@@ -79,6 +80,11 @@ namespace W03_Prove_Hilo_Game.Game
 
         public void DoUpdates()
         {
+            Card card = new Card();
+            List<int> cardsList = card.GetCards();
+            int cardOne = card.CardOne();
+            int cardTwo = card.CardTwo();
+            
             if (!isPlaying)
             {
                 return;

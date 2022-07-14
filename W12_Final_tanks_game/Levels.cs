@@ -30,6 +30,24 @@ namespace W12_Final_tanks_game
                 cast.AddActor("levelOne", wall);
             }
 
+            // for (int j = 0; j < 50; j++)
+            // {
+            //     for (int i =  0; i < 10; i++)
+            //     {
+            //         Rock artifact = new Rock();
+            //         Random random = new Random();
+            //         int min = random.Next(0,39);
+            //         int max = random.Next(0,39);
+            //         int y = random.Next(min, max) * 15;
+
+            //         int x = random.Next(0,900);
+            //         int y = random.Next(20,30) *15;
+            //         int y = 300 + i*15;
+            //         Point pos = new Point(x,y);
+            //         artifact.SetPosition(pos);
+            //     }
+            // }
+
             for (int i = 0; i < 8; i++)
             {
                 Actor wall = new Actor();

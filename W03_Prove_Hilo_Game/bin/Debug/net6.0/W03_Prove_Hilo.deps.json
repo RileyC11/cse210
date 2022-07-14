@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "W03 Prove Hilo/1.0.0": {
+      "W03_Prove_Hilo/1.0.0": {
         "runtime": {
-          "W03 Prove Hilo.dll": {}
+          "W03_Prove_Hilo.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "W03 Prove Hilo/1.0.0": {
+    "W03_Prove_Hilo/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

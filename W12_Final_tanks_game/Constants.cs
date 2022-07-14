@@ -16,6 +16,7 @@ namespace W12_Final_tanks_game
         public static string GAME_NAME = "Tanks";
         public static int FRAME_RATE = 15;
         public static bool BOUNCED = false;
+        public static int BOUNCES = 0;
 
         public static int LEVEL = 1;
         public static string LEVEL_ONE = "levelOne";

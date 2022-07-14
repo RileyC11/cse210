@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cVzAgB9enN+0kq+FytDwGNzDwmMp9B8wx056lvycZ9kLmPt3Usu/ZvdQgTFYUjeb9BcDIx2+pPUbOhBMpBLFLw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\OneDrive - BYU-Idaho\\CSE 210\\cse210\\Frogger\\Frogger.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

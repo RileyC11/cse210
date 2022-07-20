@@ -104,7 +104,8 @@ namespace W09_Prove_cycle_game.Game.Casting
 
             Actor segment = new Actor();
             segment.SetPosition(position);
-            segment.SetVelocity(velocity);
+            segment.SetVelocity(new Point(0,0));
+            // segment.SetVelocity(velocity);
             segment.SetText(text);
             segment.SetColor(color);
             segments.Add(segment);

@@ -1,6 +1,9 @@
 using Frogger.Game.Casting;
 using Frogger.Game.Services;
 using Frogger.Game.Scripting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Frogger.Game.Scripting
@@ -14,6 +17,9 @@ namespace Frogger.Game.Scripting
     public class ControlActorsAction : Action
     {
         private KeyboardService keyboardService;
+        public static Point frog_direction = new Point(0,0);
+        public static Point log_direction = new Point(0,0);
+        public static Point car_direction = new Point(0,0);
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
@@ -26,35 +32,55 @@ namespace Frogger.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            Point direction = new Point(0,0);
+            frog_direction = Constants.FROG_DIRECTION;
+            log_direction = Constants.LOG_DIRECTION;
+            car_direction = Constants.CAR_DIRECTION;
 
             // left player 1
             if (keyboardService.IsKeyDown("a"))
             {
-                direction = new Point(-Constants.CELL_SIZE, 0);
+                Constants.FROG_DIRECTION = new Point(-Constants.CELL_SIZE, 0);
             }
 
             // right player 1
             if (keyboardService.IsKeyDown("d"))
             {
-                direction = new Point(Constants.CELL_SIZE, 0);
+                Constants.FROG_DIRECTION = new Point(Constants.CELL_SIZE, 0);
 
             }
 
             // up player 1
             if (keyboardService.IsKeyDown("w"))
             {
-                direction = new Point(0, -Constants.CELL_SIZE);
+                Constants.FROG_DIRECTION = new Point(0, -Constants.CELL_SIZE);
             }
 
             // down player 1
             if (keyboardService.IsKeyDown("s"))
             {
-                direction = new Point(0, Constants.CELL_SIZE);
+                Constants.FROG_DIRECTION = new Point(0, Constants.CELL_SIZE);
             }
 
             Frog frog = (Frog)cast.GetFirstActor("frog");
-            frog.SetVelocity(direction);
+            
+
+            Logs logs = (Logs)cast.GetFirstActor("logs");
+            List<Actor> logsList = logs.GetLogs();
+            foreach (Actor log in logsList)
+            {
+                log.SetVelocity(Constants.LOG_DIRECTION);
+            }
+
+            // Cars cars = (Cars)cast.GetFirstActor("cars");
+            // List<Actor> carsList = cars.GetCars();
+            // foreach (Actor car in carsList)
+            // {
+            //     car.DriveCars(Constants.CAR_DIRECTION);
+            // }
+            // cars.DriveCars(Constants.CAR_DIRECTION);
+
+            List<Actor> carsList = (Actor)cast.GetActors("cars");
+
         }
     }
 }

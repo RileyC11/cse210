@@ -31,6 +31,10 @@ namespace Frogger.Game.Scripting
 
             Cars cars = (Cars)cast.GetFirstActor("cars");
             List<Actor> carsList = cars.GetCars();
+            foreach (Actor car in carsList)
+            {
+                Console.WriteLine($"Car vel ({car.GetVelocity().GetX()}, {car.GetVelocity().GetY()})");
+            }
 
             Actor banner = cast.GetFirstActor("banner");
             

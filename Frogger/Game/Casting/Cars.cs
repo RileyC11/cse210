@@ -29,12 +29,30 @@ namespace Frogger.Game.Casting
             return carsList;
         }
 
+        public override void MoveNext()
+        {
+            foreach (Actor car in carsList)
+            {
+                car.MoveNext();
+            }
+        }
+
+        public void DriveCars(Point direction)
+        {
+            foreach (Actor car in carsList)
+            {
+                car.SetVelocity(direction);
+            }
+        }
 
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
         private void CreateCars()
         {
+            Random random = new Random();
+            int ymin = random.Next(0,39);
+            
             for (int i = 0; i < Constants.CARS; i++)
             {
                 string text = "8--8";
@@ -43,10 +61,15 @@ namespace Frogger.Game.Casting
 
                 Point velocity = new Point(5,0); 
 
-                Random random = new Random();
                 int x = random.Next(0,60) * Constants.CELL_SIZE;
-                int ymin = random.Next(0,39);
-                int y = random.Next(ymin,ymin+10) * Constants.CELL_SIZE;
+                foreach(Actor carro in carsList)
+                {
+                    if (carro.GetPosition().GetX()  <= x + 30)
+                    {
+                        x += -30;
+                    }
+                }
+                int y = random.Next(ymin,ymin+5) * Constants.CELL_SIZE;
                 Point position = new Point(x,y);
 
                 Actor car = new Actor();

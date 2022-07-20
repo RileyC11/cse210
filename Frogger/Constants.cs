@@ -17,12 +17,18 @@ namespace Frogger
         public static string CAPTION = "Frogger";
 
         // COLORS
-        public static Color GREEN = new Color(0, 255, 0);
+        public static Color GREEN = new Color(111, 195, 223);
         public static Color WHITE = new Color(225, 255, 225);
         public static Color BROWN = new Color(181, 101, 29);
 
         // NUMBER LOGS AND CARS
         public static int LOGS = 20;
         public static int CARS = 20;
+
+        // INITIAL DIRECTIONS
+        public static Point FROG_DIRECTION = new Point(0,0);
+        public static Point LOG_DIRECTION = new Point(3,0);
+        public static Point CAR_DIRECTION = new Point(5,0);
+
     }
 }

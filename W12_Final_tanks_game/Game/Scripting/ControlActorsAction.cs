@@ -81,7 +81,7 @@ namespace W12_Final_tanks_game.Game.Scripting
             // up player 1 bullet
             if (keyboardService.IsKeyDown("i"))
             {
-                bullet1.SetText("\x2191");
+                bullet1.SetText("|");
                 bullet1.SetPosition(pos1);
                 velB1 = new Point(0,-Constants.CELL_SIZE);
             }

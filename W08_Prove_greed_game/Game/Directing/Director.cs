@@ -53,7 +53,6 @@ namespace W08_Prove_greed_game.Game.Directing
             Actor robot = cast.GetFirstActor("robot");
             Point velocity = keyboardService.GetDirection();
             robot.SetVelocity(velocity);     
-            
         }
 
         /// <summary>

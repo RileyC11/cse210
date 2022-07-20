@@ -39,6 +39,14 @@ namespace Frogger.Game.Casting
             return score;
         }
 
+        public void MoveLogs(Point direction)
+        {
+            foreach (Actor log in logsList)
+            {
+                log.SetVelocity(direction);
+            }
+        }
+
         /// <summary>
         /// Prepares the logs for moving.
         /// </summary>
@@ -55,7 +63,7 @@ namespace Frogger.Game.Casting
                 Random random = new Random();
                 int x = random.Next(0,60) * Constants.CELL_SIZE;
                 int ymin = random.Next(0,39);
-                int y = random.Next(ymin,ymin+10) * Constants.CELL_SIZE;
+                int y = random.Next(ymin,ymin+5) * Constants.CELL_SIZE;
                 Point position = new Point(x,y);
 
                 Actor log = new Actor();
